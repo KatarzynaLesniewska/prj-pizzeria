@@ -53,8 +53,11 @@
   };
 
   class Product {
-    constructor() {
+    constructor(id, data) {
       const thisProduct = this;
+
+      thisProduct.id = id;
+      thisProduct.data = data;
 
       console.log('new Product;', thisProduct);
     }
@@ -67,11 +70,6 @@
       for (let productData in thisApp.data.produscts) {
         new Product(productData, thisApp.data.products[productData]);
       }
-
-      /* tą część zastąić
-      const testProduct = new Product();
-      console.log('testProduct:', testProduct);
-      */
     },
     //to jest deklaracja metody app.initMenu
 
