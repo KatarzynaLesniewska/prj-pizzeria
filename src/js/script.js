@@ -77,7 +77,7 @@
       const menuContainer = document.querySelector(select.containerOf.menu);
 
       /* add elem to menu */
-
+      menuContainer.appendChild(thisProduct.element);
     }
   }
 
