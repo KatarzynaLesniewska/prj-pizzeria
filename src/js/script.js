@@ -96,6 +96,7 @@
         console.log('preventDefault- czy działa?');
 
         /* toggle active class on element of thisProduct */
+        thisProduct.element.classList.toggle(select.menuProduct.clickable);
 
         /* find all active products */
 
