@@ -103,7 +103,7 @@
         for (let activeProduct of activeProducts) {
 
           if (activeProduct != thisProduct.element) {
-            activeProduct.classList.remove('active');
+            activeProduct.classList.remove(select.menuProduct.clickable);
           }
         }
       });
