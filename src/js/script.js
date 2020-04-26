@@ -99,6 +99,8 @@
         thisProduct.element.classList.toggle(select.menuProduct.clickable);
 
         /* find all active products */
+        const allActiveProducts = document.querySelectorAll('.active');
+        console.log('allActiveProducts:', allActiveProducts);
 
         /* START LOOP: for each active product */
 
