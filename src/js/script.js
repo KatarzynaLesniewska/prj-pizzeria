@@ -147,6 +147,10 @@
 
       const formData = utils.serializeFormToObject(thisProduct.form);
       console.log('formData:', formData);
+
+      ////////////////////////////////////////////////////////////
+      let price = utils.serializeFormToObject(thisProduct.priceElem);
+      console.log('price:', price);
     }
 
   }
