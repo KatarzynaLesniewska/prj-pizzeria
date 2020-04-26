@@ -89,6 +89,9 @@
       const productsHeader = document.getElementById(select.menuProduct.clickable);
 
       /* START: click event listener to trigger */
+      productsHeader.addEventListener('click', function(){
+        console.log('clicked');
+      });
 
         /* prevent default action for event */
 
