@@ -62,6 +62,8 @@
       thisProduct.renderInMenu();
       thisProduct.getElements();
       thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
 
       console.log('new Product;', thisProduct);
     }
@@ -82,7 +84,7 @@
       menuContainer.appendChild(thisProduct.element);
     }
 
-    getElements(){
+    getElements() {
       const thisProduct = this;
 
       thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
@@ -95,16 +97,14 @@
     initAccordion() {
       const thisProduct = this;
 
-      /* find the clickable trigger (the element that should react to clicking) */
-      /* const buttonTest = document.getElementById('.product__header'); select.menuProduct.clickable */
-      /*const productsHeader = thisProduct.element.querySelector(select.menuProduct.clickable); */
-
+      /* find the clickable trigger (the element that should react to clicking)
+      const productsHeader = thisProduct.element.querySelector(select.menuProduct.clickable); */
       /* START: click event listener to trigger */
       thisProduct.accordionTrigger.addEventListener('click', function (event) {
         console.log('clicked');
 
         event.preventDefault();
-        console.log('preventDefault- czy działa?');
+        console.log('preventDefault- działa');
 
         thisProduct.element.classList.toggle(select.menuProduct.clickable);
 
@@ -118,6 +118,16 @@
           }
         }
       });
+    }
+
+    initOrderForm(){
+      const thisProduct = this;
+      console.log('initOrderForm- działa');
+    }
+
+    processOrder() {
+      const thisProduct = this;
+      console.log('processOrder- działa');
     }
 
   }
