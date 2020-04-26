@@ -85,7 +85,7 @@
       const thisProduct = this;
 
       /* find the clickable trigger (the element that should react to clicking) */
-      /* const buttonTest = document.getElementById('.product__header'); */
+      /* const buttonTest = document.getElementById('.product__header'); select.menuProduct.clickable */
       const productsHeader = document.getElementById(select.menuProduct.clickable);
 
       /* START: click event listener to trigger */
@@ -108,7 +108,6 @@
         }
       });
     }
-
 
   }
 
