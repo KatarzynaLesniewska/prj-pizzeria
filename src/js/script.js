@@ -95,24 +95,17 @@
         event.preventDefault();
         console.log('preventDefault- czy działa?');
 
-        /* toggle active class on element of thisProduct */
         thisProduct.element.classList.toggle(select.menuProduct.clickable);
 
-        /* find all active products */
-        const allActiveProducts = document.querySelectorAll('.active');
-        console.log('allActiveProducts:', allActiveProducts);
+        const activeProducts = document.querySelectorAll('.active');
+        console.log('activeProducts:', activeProducts);
 
-        /* START LOOP: for each active product */
+        for (let activeProduct of activeProducts) {
 
-          /* START: if the active product isn't the element of thisProduct */
-
-            /* remove class active for the active product */
-
-          /* END: if the active product isn't the element of thisProduct */
-
-        /* END LOOP: for each active product */
-
-        /* END: click event listener to trigger */
+          if (activeProduct != thisProduct.element) {
+            activeProduct.classList.remove('active');
+          }
+        }
       });
     }
 
