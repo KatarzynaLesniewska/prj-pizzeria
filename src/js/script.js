@@ -89,11 +89,11 @@
       const productsHeader = document.getElementById(select.menuProduct.clickable);
 
       /* START: click event listener to trigger */
-      productsHeader.addEventListener('click', function(){
+      productsHeader.addEventListener('click', function(event){
         console.log('clicked');
-      });
 
-        /* prevent default action for event */
+        event.preventDefault();
+        console.log('preventDefault- czy działa?');
 
         /* toggle active class on element of thisProduct */
 
@@ -109,8 +109,10 @@
 
         /* END LOOP: for each active product */
 
-      /* END: click event listener to trigger */
+        /* END: click event listener to trigger */
+      });
     }
+
 
   }
 
