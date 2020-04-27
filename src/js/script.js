@@ -120,22 +120,22 @@
       });
     }
 
-    initOrderForm(){
+    initOrderForm() {
       const thisProduct = this;
       console.log('initOrderForm- działa');
 
-      thisProduct.form.addEventListener('submit', function(event){
+      thisProduct.form.addEventListener('submit', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
       });
 
-      for(let input of thisProduct.formInputs){
-        input.addEventListener('change', function(){
+      for (let input of thisProduct.formInputs) {
+        input.addEventListener('change', function () {
           thisProduct.processOrder();
         });
       }
 
-      thisProduct.cartButton.addEventListener('click', function(event){
+      thisProduct.cartButton.addEventListener('click', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
       });
@@ -149,8 +149,35 @@
       console.log('formData:', formData);
 
       ////////////////////////////////////////////////////////////
+      /* zmienna price z domyślną ceną produktu */
       let price = utils.serializeFormToObject(thisProduct.priceElem);
       console.log('price:', price);
+
+      /* START pętla 1 iterująca po wszystkich params/paramId/@name */
+      for (let param of params) {
+
+        /* START pętla 2 iterująca po wszystkich options/@value */
+        for (let param of params) {
+          /* jeżeli @name z param == @name z formData;
+          & jeżeli @value z param == @value z formData;
+          & @value z param != default;
+          to dodaj cene produktu do ceny ogólnej
+          else if
+          jeżeli @name z param != @name z formData;
+          ||
+          jeżeli @value z param != @value z formData
+          & @value z param == default;
+          to odejmi cene option/value od ceny ogólnej produktu
+          */
+
+        } /* END pętla 2 */
+
+      } /* END pętla 1 */
+
+      /* wstawić wartość zmiennej price do elementu thisProduct.priceElem */
+      thisProduct.priceElem(price);
+      console.log(thisProduct.priceElem);
+
     }
 
   }
