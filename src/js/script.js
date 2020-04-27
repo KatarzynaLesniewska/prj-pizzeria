@@ -169,9 +169,19 @@
             totalPrice = price + dataSource.products.params.options.price;
           } /* END IF: if option is selected and option is not default */
           /* START ELSE IF: if option is not selected and option is default */
-          if (optionSelected && option.default) {
+          else if (optionSelected && option.default) {
             /* deduct price of option from price */
             totalPrice = price - dataSource.products.params.options.price;
+          }
+          const Images = dataSource.products.pizza.images
+          if(optionSelected) {
+            for(let image of images) {
+              const activeImages = thisProduct.imageWrapper.classList.add(classNames.menuProduct.imageVisible);
+            }
+          } else {
+            for(let image of images) {
+              const unActiveImages = thisProduct.imageWrapper.classList.remove(classNames.menuProduct.imageVisible);
+            }
           }
         }
       }
