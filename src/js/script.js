@@ -145,35 +145,72 @@
       const thisProduct = this;
       console.log('processOrder- działa');
 
+      /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
       console.log('formData:', formData);
 
-      ////////////////////////////////////////////////////////////
-      /* zmienna price z domyślną ceną produktu */
-      let price = utils.serializeFormToObject(thisProduct.priceElem);
+      /* set variable price to equal thisProduct.data.price */
+      let price = thisProduct.data.price;
       console.log('price:', price);
 
-      /* START pętla 1 iterująca po wszystkich params/paramId/@name */
-      for (let dataSource.products.param of dataSource.products.params) {
+      /* START LOOP: for each paramId in thisProduct.data.params */
+      for (let paramId of thisProduct.data.params) {
+        /* save the element in thisProduct.data.params with key paramId as const param */
+        const param = thisProduct.data.params(@paramId)
 
-        /* START pętla 2 iterująca po wszystkich options/@value */
-        for (let dataSource.products.option of dataSource.products.options) {
-          if(const keyParamFormDataExists = formData.hasOwnProperty('@name') && const keyOptionFormDataExists = formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists != dataSource.products.params.options.hasOwnProperty('@default')) {
-            totalPrice = price + dataSource.products.params.options.price;
-          } else if (const keyParamFormDataExists != formData.hasOwnProperty('@name') || const keyOptionFormDataExists != formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists = dataSource.products.params.options.hasOwnProperty('@default')) {
-            totalPrice = price - dataSource.products.params.options.price
+        /* START LOOP: for each optionId in param.options */
+        for (let optionId of thisProduct.data.params.options) {
+          /* save the element in param.options with key optionId as const option */
+          const option = thisProduct.data.params.options(@paramId)
+          /* START IF: if option is selected and option is not default */
+          if (option == formData.hasOwnProperty('@value') && option != dataSource.products.params.options.hasOwnProperty('@default')) {
+            /* add price of option to variable price */
+            price + dataSource.products.params.options.price;
+          } /* END IF: if option is selected and option is not default */
+          /* START ELSE IF: if option is not selected and option is default */
+          if (option != formData.hasOwnProperty('@value') && option == dataSource.products.params.options.hasOwnProperty('@default')) {
+            /* deduct price of option from price */
+            price - dataSource.products.params.options.price;
           }
-        } /* END pętla 2 */
+          /* END ELSE IF: if option is not selected and option is default */
+        }
+        /* END LOOP: for each optionId in param.options */
+      }
+      /* END LOOP: for each paramId in thisProduct.data.params */
 
-      } /* END pętla 1 */
-
-      /* wstawić wartość zmiennej price do elementu thisProduct.priceElem */
+      /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem(price);
       console.log(thisProduct.priceElem);
-
     }
 
   }
+
+  /*
+    const formData = utils.serializeFormToObject(thisProduct.form);
+    console.log('formData:', formData);
+
+    zmienna price z domyślną ceną produktu
+    let price = utils.serializeFormToObject(thisProduct.priceElem);
+    console.log('price:', price);
+
+    START pętla 1 iterująca po wszystkich params/paramId/@name
+    for (let dataSource.products.param of dataSource.products.params) {
+
+      START pętla 2 iterująca po wszystkich options/@value
+      for (let dataSource.products.option of dataSource.products.options) {
+        if(const keyParamFormDataExists = formData.hasOwnProperty('@name') && const keyOptionFormDataExists = formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists != dataSource.products.params.options.hasOwnProperty('@default')) {
+          totalPrice = price + dataSource.products.params.options.price;
+        } else if (const keyParamFormDataExists != formData.hasOwnProperty('@name') || const keyOptionFormDataExists != formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists = dataSource.products.params.options.hasOwnProperty('@default')) {
+          totalPrice = price - dataSource.products.params.options.price
+        }
+      }  END pętla 2
+
+    }  END pętla 1
+
+    wstawić wartość zmiennej price do elementu thisProduct.priceElem
+    thisProduct.priceElem(price);
+    console.log(thisProduct.priceElem);
+  */
 
   const app = {
     initMenu: function () {
