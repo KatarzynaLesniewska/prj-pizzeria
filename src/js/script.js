@@ -154,22 +154,15 @@
       console.log('price:', price);
 
       /* START pętla 1 iterująca po wszystkich params/paramId/@name */
-      for (let param of params) {
+      for (let dataSource.products.param of dataSource.products.params) {
 
         /* START pętla 2 iterująca po wszystkich options/@value */
-        for (let param of params) {
-          /* jeżeli @name z param == @name z formData;
-          & jeżeli @value z param == @value z formData;
-          & @value z param != default;
-          to dodaj cene produktu do ceny ogólnej
-          else if
-          jeżeli @name z param != @name z formData;
-          ||
-          jeżeli @value z param != @value z formData
-          & @value z param == default;
-          to odejmi cene option/value od ceny ogólnej produktu
-          */
-
+        for (let dataSource.products.option of dataSource.products.options) {
+          if(const keyParamFormDataExists = formData.hasOwnProperty('@name') && const keyOptionFormDataExists = formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists != dataSource.products.params.options.hasOwnProperty('@default')) {
+            totalPrice = price + dataSource.products.params.options.price;
+          } else if (const keyParamFormDataExists != formData.hasOwnProperty('@name') || const keyOptionFormDataExists != formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists = dataSource.products.params.options.hasOwnProperty('@default')) {
+            totalPrice = price - dataSource.products.params.options.price
+          }
         } /* END pętla 2 */
 
       } /* END pętla 1 */
