@@ -161,56 +161,24 @@
         /* START LOOP: for each optionId in param.options */
         for (let optionId of thisProduct.data.params.options) {
           /* save the element in param.options with key optionId as const option */
-          const option = thisProduct.data.params.options(@paramId)
+          const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
           /* START IF: if option is selected and option is not default */
-          if (option == formData.hasOwnProperty('@value') && option != dataSource.products.params.options.hasOwnProperty('@default')) {
+          if (optionSelected && !option.default) {
             /* add price of option to variable price */
-            price + dataSource.products.params.options.price;
+            totalPrice = price + dataSource.products.params.options.price;
           } /* END IF: if option is selected and option is not default */
           /* START ELSE IF: if option is not selected and option is default */
-          if (option != formData.hasOwnProperty('@value') && option == dataSource.products.params.options.hasOwnProperty('@default')) {
+          if (optionSelected && option.default) {
             /* deduct price of option from price */
-            price - dataSource.products.params.options.price;
+            totalPrice = price - dataSource.products.params.options.price;
           }
-          /* END ELSE IF: if option is not selected and option is default */
         }
-        /* END LOOP: for each optionId in param.options */
       }
-      /* END LOOP: for each paramId in thisProduct.data.params */
-
-      /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem(price);
       console.log(thisProduct.priceElem);
     }
 
   }
-
-  /*
-    const formData = utils.serializeFormToObject(thisProduct.form);
-    console.log('formData:', formData);
-
-    zmienna price z domyślną ceną produktu
-    let price = utils.serializeFormToObject(thisProduct.priceElem);
-    console.log('price:', price);
-
-    START pętla 1 iterująca po wszystkich params/paramId/@name
-    for (let dataSource.products.param of dataSource.products.params) {
-
-      START pętla 2 iterująca po wszystkich options/@value
-      for (let dataSource.products.option of dataSource.products.options) {
-        if(const keyParamFormDataExists = formData.hasOwnProperty('@name') && const keyOptionFormDataExists = formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists != dataSource.products.params.options.hasOwnProperty('@default')) {
-          totalPrice = price + dataSource.products.params.options.price;
-        } else if (const keyParamFormDataExists != formData.hasOwnProperty('@name') || const keyOptionFormDataExists != formData.hasOwnProperty('@value') && const keyDefaultInOptionsExists = dataSource.products.params.options.hasOwnProperty('@default')) {
-          totalPrice = price - dataSource.products.params.options.price
-        }
-      }  END pętla 2
-
-    }  END pętla 1
-
-    wstawić wartość zmiennej price do elementu thisProduct.priceElem
-    thisProduct.priceElem(price);
-    console.log(thisProduct.priceElem);
-  */
 
   const app = {
     initMenu: function () {
