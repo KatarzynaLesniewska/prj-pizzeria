@@ -174,6 +174,9 @@
           }
         }
       }
+
+      /* multiply price by amount */
+      price *= thisProduct.amountWidget.value;
       thisProduct.priceElem(price);
       // console.log(thisProduct.priceElem);
     }
