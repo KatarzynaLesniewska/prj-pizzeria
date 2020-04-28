@@ -93,24 +93,22 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
     }
 
     initAccordion() {
       const thisProduct = this;
 
-      /* find the clickable trigger (the element that should react to clicking)
-      const productsHeader = thisProduct.element.querySelector(select.menuProduct.clickable); */
-      /* START: click event listener to trigger */
       thisProduct.accordionTrigger.addEventListener('click', function (event) {
-        console.log('clicked');
+        // console.log('clicked');
 
         event.preventDefault();
-        console.log('preventDefault- działa');
+        // console.log('preventDefault- działa');
 
         thisProduct.element.classList.toggle(select.menuProduct.clickable);
 
         const activeProducts = document.querySelectorAll('.active');
-        console.log('activeProducts:', activeProducts);
+        // console.log('activeProducts:', activeProducts);
 
         for (let activeProduct of activeProducts) {
 
@@ -123,7 +121,7 @@
 
     initOrderForm() {
       const thisProduct = this;
-      console.log('initOrderForm- działa');
+      // console.log('initOrderForm- działa');
 
       thisProduct.form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -144,49 +142,39 @@
 
     processOrder() {
       const thisProduct = this;
-      console.log('processOrder- działa');
+      // console.log('processOrder- działa');
 
-      /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData:', formData);
+      // console.log('formData:', formData);
 
-      /* set variable price to equal thisProduct.data.price */
       let price = thisProduct.data.price;
-      console.log('price:', price);
+      // console.log('price:', price);
 
-      /* START LOOP: for each paramId in thisProduct.data.params */
       for (let paramId of thisProduct.data.params) {
-        /* save the element in thisProduct.data.params with key paramId as const param */
         const param = thisProduct.data.params(@paramId)
 
-        /* START LOOP: for each optionId in param.options */
         for (let optionId of thisProduct.data.params.options) {
-          /* save the element in param.options with key optionId as const option */
           const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
-          /* START IF: if option is selected and option is not default */
           if (optionSelected && !option.default) {
-            /* add price of option to variable price */
             totalPrice = price + dataSource.products.params.options.price;
-          } /* END IF: if option is selected and option is not default */
-          /* START ELSE IF: if option is not selected and option is default */
+          }
           else if (optionSelected && option.default) {
-            /* deduct price of option from price */
             totalPrice = price - dataSource.products.params.options.price;
           }
           const Images = dataSource.products.pizza.images
-          if(optionSelected) {
-            for(let image of images) {
+          if (optionSelected) {
+            for (let image of images) {
               const activeImages = thisProduct.imageWrapper.classList.add(classNames.menuProduct.imageVisible);
             }
           } else {
-            for(let image of images) {
+            for (let image of images) {
               const unActiveImages = thisProduct.imageWrapper.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
         }
       }
       thisProduct.priceElem(price);
-      console.log(thisProduct.priceElem);
+      // console.log(thisProduct.priceElem);
     }
 
   }
@@ -195,20 +183,19 @@
     constructor(element) {
       const thisWidget = this;
 
-      console.log('AmountWidget:', thisWidget);
-      console.log('constructor arguments:', element);
+      // console.log('AmountWidget:', thisWidget);
+      // console.log('constructor arguments:', element);
     }
   }
 
   const app = {
     initMenu: function () {
       const thisApp = this;
-      console.log('thisApp.data:', thisApp.data);
+      // console.log('thisApp.data:', thisApp.data);
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
       }
     },
-    //to jest deklaracja metody app.initMenu
 
     initData: function () {
       const thisApp = this;
