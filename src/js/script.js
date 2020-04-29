@@ -216,6 +216,12 @@
       });
 
     }
+
+    addToCart() {
+      const thisProduct = this;
+
+      app.cart.add(thisProduct);
+    }
   }
 
   class AmountWidget {
@@ -312,6 +318,7 @@
 
     add(menuProduct) {
       // const thisCart = this;
+      // w metodzie add ta instancja produktu będzie dostępna jako menuProduct
 
       console.log('adding product:', menuProduct);
     }
