@@ -92,7 +92,7 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
-      console.log('new Product;', thisProduct);
+      // console.log('new Product;', thisProduct);
     }
 
     renderInMenu() {
@@ -279,6 +279,28 @@
     }
   }
 
+  class Cart {
+    constructor(element) {
+      const thisCart = this;
+
+      // produkty dodane do koszyka
+      thisCart.products = [];
+
+      thisCart.getElements(element);
+
+      console.log('new Cart:', thisCart);
+    }
+
+    getElements(element) {
+      const thisCart = this;
+
+      // przechowywanie elem DOM z koszyka
+      thisCart.dom = {};
+
+      thisCart.dom.wrapper = element;
+    }
+  }
+
   const app = {
     initMenu: function () {
       const thisApp = this;
@@ -296,11 +318,11 @@
 
     init: function () {
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);
+      // console.log('*** App starting ***');
+      // console.log('thisApp:', thisApp);
+      // console.log('classNames:', classNames);
+      // console.log('settings:', settings);
+      // console.log('templates:', templates);
 
       thisApp.initData();
       thisApp.initMenu();
