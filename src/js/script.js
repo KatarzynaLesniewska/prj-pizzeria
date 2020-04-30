@@ -204,7 +204,9 @@
 
       /* multiply price by amount */
       price *= thisProduct.amountWidget.value;
-      thisProduct.priceElem(price);
+      /* set the contents of thisProduct.priceElem to be the value of variable price */
+      thisProduct.priceElem.innerHTML = price;
+      /* to było źle; thisProduct.priceElem(price); */
       // console.log(thisProduct.priceElem);
     }
 
