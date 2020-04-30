@@ -175,6 +175,7 @@
       const formData = utils.serializeFormToObject(thisProduct.form);
       // console.log('formData:', formData);
 
+      thisProduct.params = {}
       let price = thisProduct.data.price;
       // console.log('price:', price);
 
@@ -191,16 +192,27 @@
           }
           const Images = dataSource.products.pizza.images
           if (optionSelected) {
-            for (let image of images) {
-              const activeImages = thisProduct.imageWrapper.classList.add(classNames.menuProduct.imageVisible);
+
+            if(!thisProduct.params[paramId]) {
+              thisProduct.params[paramId] = {
+                label: param.label,
+                options: {},
+              };
             }
-          } else {
+            thisProduct.params[paramId].options[optionId] = option.label;
+
             for (let image of images) {
-              const unActiveImages = thisProduct.imageWrapper.classList.remove(classNames.menuProduct.imageVisible);
+                const activeImages = thisProduct.imageWrapper.classList.add(classNames.menuProduct.imageVisible);
+            } else {
+              for (let image of images) {
+                const unActiveImages = thisProduct.imageWrapper.classList.remove(classNames.menuProduct.imageVisible);
+              }
             }
           }
         }
       }
+
+      console.log('thisProduct.params:', thisProduct.params);
 
       /* multiply price by amount;
       "price" - cena całkowita;
