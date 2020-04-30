@@ -212,7 +212,7 @@
         }
       }
 
-      console.log('thisProduct.params:', thisProduct.params);
+      // console.log('thisProduct.params:', thisProduct.params);
 
       /* multiply price by amount;
       "price" - cena całkowita;
@@ -323,7 +323,9 @@
       thisCart.getElements(element);
       thisCart.initActions(element);
 
-      console.log('new Cart:', thisCart);
+      thisCart.deliveryFee = settings.defaultDeliveryFee;
+
+      // console.log('new Cart:', thisCart);
     }
 
     getElements(element) {
@@ -361,10 +363,30 @@
       thisCart.dom.productList.appendChild(generatedDOM);
 
       // w metodzie add ta instancja produktu będzie dostępna jako menuProduct
-      console.log('adding product:', menuProduct);
+      // console.log('adding product:', menuProduct);
 
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-      console.log('thisCart.products:', thisCart.products);
+      // console.log('thisCart.products:', thisCart.products);
+
+      thisCart.update(element);
+    }
+
+    update(element) {
+      const thisCart = this;
+
+      thisCart.totalNumber = 0;
+      thisCart.subtotalPrice = 0;
+
+      for (let thisCart.product of thisCart.products) {
+        thisCart.subtotalPrice += price;
+        thisCart.totalNumber += amount;
+      }
+
+      thisCart.totalPrice = subtotalPrice += deliveryFee
+
+      console.log('totalNumber:', totalNumber);
+      console.log('subtotalPrice :', subtotalPrice);
+      console.log('thisCart.totalPrice:', thisCart.totalPrice);
     }
   }
 
@@ -382,8 +404,8 @@
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget(element);
 
-      console.log('thisCartProduct:', thisCartProduct);
-      console.log('productData:', menuProduct);
+      // console.log('thisCartProduct:', thisCartProduct);
+      // console.log('productData:', menuProduct);
     }
 
     getElements(element) {
@@ -405,7 +427,7 @@
 
       thisCart.dom.wrapper.addEventListener('update', function (event) {
 
-      } );
+      });
 
       thisCartProduct.amount = thisCartProduct.amountWidget.value;
       thisCartProduct.price = thisCartProduct.priceSingle *= thisCartProduct.amount;
