@@ -306,7 +306,10 @@
         announce() {
           const thisWidget = this;
 
-          const event = new Event('updated');
+          // const event = new Event('updated'); zmieniam na:
+          const event = new CustomEvent('updated', {
+            bubbles: true
+          });
           thisWidget.element.dispatchEvent(event);
         }
       }
