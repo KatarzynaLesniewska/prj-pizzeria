@@ -380,6 +380,7 @@
       thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
 
       thisCartProduct.getElements(element);
+      thisCartProduct.initAmountWidget(element);
 
       console.log('thisCartProduct:', thisCartProduct);
       console.log('productData:', menuProduct);
@@ -402,7 +403,9 @@
 
       thisCartProduct.amountWidget = new AmountWidget(thisCart.dom.wrapper);
 
-      thisCart.dom.wrapper.addEventListener('update?', );
+      thisCart.dom.wrapper.addEventListener('update', function (event) {
+
+      } );
 
       thisCartProduct.amount = thisCartProduct.amountWidget.value;
       thisCartProduct.price = thisCartProduct.priceSingle *= thisCartProduct.amount;
