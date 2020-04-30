@@ -396,6 +396,18 @@
       thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
       thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
     }
+
+    initAmountWidget() {
+      const thisCartProduct = this;
+
+      thisCartProduct.amountWidget = new AmountWidget(thisCart.dom.wrapper);
+
+      thisCart.dom.wrapper.addEventListener('update?', );
+
+      thisCartProduct.amount = thisCartProduct.amountWidget.value;
+      thisCartProduct.price = thisCartProduct.priceSingle *= thisCartProduct.amount;
+    }
+
   }
 
 
