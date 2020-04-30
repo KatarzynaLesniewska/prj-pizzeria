@@ -193,7 +193,7 @@
           const Images = dataSource.products.pizza.images
           if (optionSelected) {
 
-            if(!thisProduct.params[paramId]) {
+            if (!thisProduct.params[paramId]) {
               thisProduct.params[paramId] = {
                 label: param.label,
                 options: {},
@@ -202,7 +202,7 @@
             thisProduct.params[paramId].options[optionId] = option.label;
 
             for (let image of images) {
-                const activeImages = thisProduct.imageWrapper.classList.add(classNames.menuProduct.imageVisible);
+              const activeImages = thisProduct.imageWrapper.classList.add(classNames.menuProduct.imageVisible);
             } else {
               for (let image of images) {
                 const unActiveImages = thisProduct.imageWrapper.classList.remove(classNames.menuProduct.imageVisible);
@@ -334,6 +334,7 @@
 
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+      thisCart.dom.productList = select.cart.productList;
     }
 
     initActions(element) {
@@ -345,9 +346,21 @@
     }
 
     add(menuProduct) {
-      // const thisCart = this;
-      // w metodzie add ta instancja produktu będzie dostępna jako menuProduct
+      const thisCart = this;
 
+      /* generate HTML based on template; korzystać z bieżącego stanu produktu */
+      const generatedHTML = templates.menuProduct(Product {});
+
+      /* create element using utils.createElementFromHTML */
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+
+      /* find cart?? */
+      // const menuContainer = document.querySelector(select.containerOf.menu);
+
+      /* add elem to cart */
+      thisCart.dom.productList.appendChild(generatedDOM);
+
+      // w metodzie add ta instancja produktu będzie dostępna jako menuProduct
       console.log('adding product:', menuProduct);
     }
   }
