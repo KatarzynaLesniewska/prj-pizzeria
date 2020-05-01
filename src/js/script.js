@@ -419,10 +419,11 @@
       // console.log('index:', index);
       // console.log('value at index:', thisCart.products[index]);
 
+      const removedValue = thisCart.products.splice(index, 1);
+      // console.log('removedValue:', removedValue);
+      // console.log('thisCart.products:', thisCart.products);
 
-      której wartością będzie indeks cartProduct w tablicy thisCart.products, ;
-
-      użyć metody splice do usunięcia elementu o tym indeksie z tablicy thisCart.products;
+      cartProduct.dom.wrapper.classList.remove(cartProduct);
 
       usunąć z DOM element cartProduct.dom.wrapper;
 
