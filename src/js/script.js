@@ -422,6 +422,7 @@
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget(element);
+      thisCartProduct.initActions();
 
       // console.log('thisCartProduct:', thisCartProduct);
       // console.log('productData:', menuProduct);
@@ -463,6 +464,12 @@
       });
 
       thisCartProduct.dom.wrapper.dispatchEvent(event);
+    }
+
+    initActions () {
+      const thisCartProduct = this;
+
+      // thisCartProduct.remove();
     }
   }
 
