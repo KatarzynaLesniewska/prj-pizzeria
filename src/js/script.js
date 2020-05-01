@@ -401,9 +401,9 @@
 
       thisCart.totalPrice = subtotalPrice += deliveryFee
 
-      console.log('totalNumber:', totalNumber);
-      console.log('subtotalPrice :', subtotalPrice);
-      console.log('thisCart.totalPrice:', thisCart.totalPrice);
+      // console.log('totalNumber:', totalNumber);
+      // console.log('subtotalPrice :', subtotalPrice);
+      // console.log('thisCart.totalPrice:', thisCart.totalPrice);
 
       for (let key of thisCart.renderTotalsKeys) {
         for (lest elem of thisCart.dom[key]) {
@@ -426,11 +426,8 @@
       const RemoveElem = document.querySelector(cartProduct.dom.wrapper);
       RemoveElem.remove();
 
-
-
-      wywołać metodę update w celu przeliczenia sum po usunięciu produktu;
-
-
+      thisCart.update(element);
+      // wywołać metodę update w celu przeliczenia sum po usunięciu produktu
     }
   }
 
