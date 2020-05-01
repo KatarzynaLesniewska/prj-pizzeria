@@ -423,9 +423,10 @@
       // console.log('removedValue:', removedValue);
       // console.log('thisCart.products:', thisCart.products);
 
-      cartProduct.dom.wrapper.classList.remove(cartProduct);
+      const RemoveElem = document.querySelector(cartProduct.dom.wrapper);
+      RemoveElem.remove();
 
-      usunąć z DOM element cartProduct.dom.wrapper;
+
 
       wywołać metodę update w celu przeliczenia sum po usunięciu produktu;
 
