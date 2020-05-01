@@ -411,6 +411,25 @@
         }
       }
     }
+
+    remove(cartProduct) {
+      const thisCart = this;
+
+      const index = thisCart.products.indexOf('cartProduct');
+      // console.log('index:', index);
+      // console.log('value at index:', thisCart.products[index]);
+
+
+      której wartością będzie indeks cartProduct w tablicy thisCart.products, ;
+
+      użyć metody splice do usunięcia elementu o tym indeksie z tablicy thisCart.products;
+
+      usunąć z DOM element cartProduct.dom.wrapper;
+
+      wywołać metodę update w celu przeliczenia sum po usunięciu produktu;
+
+
+    }
   }
 
   class CartProduct {
