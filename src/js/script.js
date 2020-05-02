@@ -363,6 +363,13 @@
       const payload = {
         address: 'test',
         totalPrice: thisCart.totalPrice,
+        phoneInput: thisCart.dom.phone,
+        addressInput: thisCart.dom.address,
+        totalNumber: thisCart.totalNumber,
+        subtotalPrice: thisCart.subtotalPrice,
+        totalPrice: thisCart.totalPrice,
+        deliveryFee: thisCart.deliveryFee,
+        productsArray: thisCart.products,
       };
 
       const options = {
