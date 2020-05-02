@@ -369,8 +369,12 @@
         subtotalPrice: thisCart.subtotalPrice,
         totalPrice: thisCart.totalPrice,
         deliveryFee: thisCart.deliveryFee,
-        productsArray: thisCart.products,
+        products: products[thisCartProduct.getData()],
       };
+
+      for (let product of thisCart.products) {
+        thisCartProduct.getData();
+      }
 
       const options = {
         method: 'POST',
