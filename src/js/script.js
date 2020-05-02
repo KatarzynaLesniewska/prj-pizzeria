@@ -509,8 +509,21 @@
         thisCartProduct.remove();
       });
     }
-  }
 
+    getData() {
+      const thisCartProduct = this;
+
+      const infoAboutProduct = {
+        id: thisCartProduct.id,
+        amount: thisCartProduct.amount,
+        price: thisCartProduct.price,
+        priceSingle: thisCartProduct.priceSingle,
+        params: thisCartProduct.params,
+      };
+
+      return infoAboutProduct
+    }
+  }
 
   const app = {
     initMenu: function () {
