@@ -470,7 +470,8 @@
       const thisApp = this;
       // console.log('thisApp.data:', thisApp.data);
       for (let productData in thisApp.data.products) {
-        new Product(productData, thisApp.data.products[productData]);
+        // new Product(productData, thisApp.data.products[productData]);
+        new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
       }
     },
 
@@ -482,10 +483,10 @@
       const url = settings.db.url + '/' + settings.db.product;
 
       fetch(url)
-        .then(function(rawResponse) {
+        .then(function (rawResponse) {
           retur rawResponse.json();
         })
-        .then(function(parsedResponse) {
+        .then(function (parsedResponse) {
           console.log('parsedResponse:', parsedResponse);
 
           /* save parsedResponse as thisApp.data.products */
