@@ -480,6 +480,19 @@
       thisApp.data = {};
 
       const url = settings.db.url + '/' + settings.db.product;
+
+      fetch(url)
+        .then(function(rawResponse) {
+          retur rawResponse.json();
+        })
+        .then(function(parsedResponse) {
+          console.log('parsedResponse:', parsedResponse);
+
+          /* save parsedResponse as thisApp.data.products */
+
+          /* execute initMenu method */
+        });
+      console.log('thisApp.data:', JSON.stringify(thisApp.data));
     },
 
     init: function () {
