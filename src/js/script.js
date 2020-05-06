@@ -386,7 +386,7 @@
 
       fetch(url, options)
         .then(function (response) {
-          retur response.json();
+          return response.json();
         })
         .then(function (parsedResponse) {
           console.log('parsedResponse:', parsedResponse);
