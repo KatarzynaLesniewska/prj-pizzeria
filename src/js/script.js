@@ -544,7 +544,7 @@
 
       fetch(url)
         .then(function (rawResponse) {
-          retur rawResponse.json();
+          return rawResponse.json();
         })
         .then(function (parsedResponse) {
           console.log('parsedResponse:', parsedResponse);
