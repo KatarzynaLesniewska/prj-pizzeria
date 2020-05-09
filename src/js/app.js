@@ -56,6 +56,8 @@ const app = {
     const cartElem = document.querySelector(select.containerOf.cart);
     // instancja klasy Cart. poza app wywołanie z pomocą app.cart, dodawanie prod do koszyka
     thisApp.cart = new Cart(cartElem);
+
+    thisApp.productList = document.querySelector(select.containerOf.menu);
   },
 };
 
