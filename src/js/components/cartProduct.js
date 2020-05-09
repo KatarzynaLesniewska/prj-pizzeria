@@ -79,3 +79,5 @@ class CartProduct {
     return infoAboutProduct
   }
 }
+
+export default CartProduct;
