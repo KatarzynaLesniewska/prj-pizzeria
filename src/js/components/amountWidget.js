@@ -1,3 +1,6 @@
+import {select, settings} from './settings.js';
+import AmountWidget from './components/amountWidget.js';
+
 class AmountWidget {
   constructor(element) {
     const thisWidget = this;
