@@ -4,7 +4,6 @@ import Cart from './components/cart.js';
 import AmountWidget from './components/amountWidget.js';
 import CartProduct from './components/cartProduct.js';
 
-
 const app = {
   initMenu: function () {
     const thisApp = this;
