@@ -1,6 +1,7 @@
 import {settings, select} from './settings.js';
 import Product from './components/product.js';
 import Cart from './components/cart.js';
+import AmountWidget from './components/amountWidget.js';
 
 const app = {
   initMenu: function () {
