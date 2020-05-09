@@ -154,3 +154,5 @@ class Product {
     app.cart.add(thisProduct);
   }
 }
+
+export default Product;
