@@ -1,61 +1,56 @@
+const app = {
+  initMenu: function () {
+    const thisApp = this;
+    // console.log('thisApp.data:', thisApp.data);
+    for (let productData in thisApp.data.products) {
+      // new Product(productData, thisApp.data.products[productData]);
+      new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
+    }
+  },
 
-{
-  'use strict';
+  initData: function () {
+    const thisApp = this;
 
-  const app = {
-    initMenu: function () {
-      const thisApp = this;
-      // console.log('thisApp.data:', thisApp.data);
-      for (let productData in thisApp.data.products) {
-        // new Product(productData, thisApp.data.products[productData]);
-        new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
-      }
-    },
+    thisApp.data = {};
 
-    initData: function () {
-      const thisApp = this;
+    const url = settings.db.url + '/' + settings.db.product;
 
-      thisApp.data = {};
+    fetch(url)
+      .then(function (rawResponse) {
+        return rawResponse.json();
+      })
+      .then(function (parsedResponse) {
+        console.log('parsedResponse:', parsedResponse);
 
-      const url = settings.db.url + '/' + settings.db.product;
+        /* save parsedResponse as thisApp.data.products */
+        thisApp.data.products = parsedResponse;
 
-      fetch(url)
-        .then(function (rawResponse) {
-          return rawResponse.json();
-        })
-        .then(function (parsedResponse) {
-          console.log('parsedResponse:', parsedResponse);
+        /* execute initMenu method */
+        thisApp.initMenu();
+      });
+    console.log('thisApp.data:', JSON.stringify(thisApp.data));
+  },
 
-          /* save parsedResponse as thisApp.data.products */
-          thisApp.data.products = parsedResponse;
+  init: function () {
+    const thisApp = this;
+    // console.log('*** App starting ***');
+    // console.log('thisApp:', thisApp);
+    // console.log('classNames:', classNames);
+    // console.log('settings:', settings);
+    // console.log('templates:', templates);
 
-          /* execute initMenu method */
-          thisApp.initMenu();
-        });
-      console.log('thisApp.data:', JSON.stringify(thisApp.data));
-    },
+    thisApp.initData();
+    thisApp.initCart();
+  },
 
-    init: function () {
-      const thisApp = this;
-      // console.log('*** App starting ***');
-      // console.log('thisApp:', thisApp);
-      // console.log('classNames:', classNames);
-      // console.log('settings:', settings);
-      // console.log('templates:', templates);
+  initCart: function () {
+    const thisApp = this;
 
-      thisApp.initData();
-      thisApp.initCart();
-    },
+    // wrapper koszyka
+    const cartElem = document.querySelector(select.containerOf.cart);
+    // instancja klasy Cart. poza app wywołanie z pomocą app.cart, dodawanie prod do koszyka
+    thisApp.cart = new Cart(cartElem);
+  },
+};
 
-    initCart: function () {
-      const thisApp = this;
-
-      // wrapper koszyka
-      const cartElem = document.querySelector(select.containerOf.cart);
-      // instancja klasy Cart. poza app wywołanie z pomocą app.cart, dodawanie prod do koszyka
-      thisApp.cart = new Cart(cartElem);
-    },
-  };
-
-  app.init();
-}
+app.init();
