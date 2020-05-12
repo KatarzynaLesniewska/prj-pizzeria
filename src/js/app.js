@@ -1,6 +1,7 @@
 import { settings, select, classNames } from './settings.js';
 import Product from './components/product.js';
 import Cart from './components/cart.js';
+import Booking from './components/cart.js';
 
 const app = {
   initBooking: function () {
@@ -9,8 +10,8 @@ const app = {
     // znaleźć wraper booking
     const bookingElem = document.querySelector(select.containerOf.booking);
 
-    // instancja klasy Booking. poza app wywołanie z pomocą app.cart, dodawanie prod do koszyka
-    thisApp.cart = new Booking (bookingElem);
+    // instancja klasy Booking. poza app wywołanie z pomocą app.booking,
+    thisApp.booking = new Booking (bookingElem);
   },
 
   initPages: function () {
