@@ -6,7 +6,7 @@ const app = {
   initPages: function () {
     const thisApp = this;
 
-    thisApp.pages = document.querySelector(select.containerOf.pages);
+    thisApp.pages = document.querySelector(select.containerOf.pages).children;
   },
 
   initMenu: function () {
