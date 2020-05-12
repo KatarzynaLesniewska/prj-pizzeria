@@ -29,7 +29,7 @@ class AmountWidget extends BaseWidget{
 
     const newValue = thisWidget.parseValue(value);
 
-    if (newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
+    if (newValue != thisWidget.value && isValid(newValue)) {
       thisWidget.value = newValue;
       thisWidget.announce();
     }
@@ -42,8 +42,9 @@ class AmountWidget extends BaseWidget{
   }
 
   isValid(value) {
-    const thisWidget = this;
-
+    return !isNaN(value)
+    && value >= settings.amountWidget.defaultMin
+    && value <= settings.amountWidget.defaultMax;
   }
 
   initActions() {
