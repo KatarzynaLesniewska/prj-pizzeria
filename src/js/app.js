@@ -9,6 +9,8 @@ const app = {
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
 
     thisApp.activatePage(thisApp.pages[0].id);
+
+    thisApp.navLinks = document.querySelectorAll(select.nav.links);
   },
 
   activatePage: function (pageId) {
@@ -20,7 +22,6 @@ const app = {
     }
 
     /* add class "active" to matching links and remove it from non-matching */
-
   },
 
   initMenu: function () {
