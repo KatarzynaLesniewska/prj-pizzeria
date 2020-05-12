@@ -70,13 +70,12 @@ class Cart {
       addressInput: thisCart.dom.address,
       totalNumber: thisCart.totalNumber,
       subtotalPrice: thisCart.subtotalPrice,
-      totalPrice: thisCart.totalPrice,
       deliveryFee: thisCart.deliveryFee,
-      products: products[thisCartProduct.getData()],
+      products: [],
     };
 
     for (let product of thisCart.products) {
-      thisCartProduct.getData();
+      payload.products.push(product.getData());
     }
 
     const options = {
@@ -90,7 +89,8 @@ class Cart {
     fetch(url, options)
       .then(function (response) {
         return response.json();
-      }) .then(function (parsedResponse) {
+      })
+      .then(function (parsedResponse) {
         console.log('parsedResponse:', parsedResponse);
       });
 
