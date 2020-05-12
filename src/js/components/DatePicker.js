@@ -24,7 +24,28 @@ class DatePicker extends BaseWidget {
     thisWidget.maxDate = ;
 
     /// zainicjować plugin flatpickr z odpowiednimi opcjami
+    flatpickr(thisWidget.dom.input, options);
 
+    const options = {
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d",
+    }
+
+    //  aby domyślna data była ustawiona na wartość thisWidget.minDate
+
+    // najwcześniejsza data równa thisWidget.minDate
+
+    // najpóźniejsza data do wybrania ma być równa thisWidget.maxDate
+
+    // pierwszym dniem tygodnia zawsze był poniedziałek
+    // (wzoruj się na przykładzie z dokumentacji, zawierającym firstDayOfWeek
+
+    // restauracja nieczynna w pon, funkcję do ustawiania dat niedostępnych w
+    // kalendarzu (zmodyfikuj przykład z dokumentacji
+
+    // w momencie wykrycia zmiany wartości przez plugin, chcemy ustawiać wartość
+    // właściwości thisWidget.value na dateStr widoczne w dokumentacji pluginu.
   }
 
   parseValue() {
