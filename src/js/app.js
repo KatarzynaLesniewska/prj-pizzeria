@@ -21,6 +21,9 @@ const app = {
 
         /* run thisApp.activatePage with that id */
         thisApp.activatePage(id);
+
+        /* change url hash */
+        window.location.hash = '#/' + id;
       });
     }
   },
