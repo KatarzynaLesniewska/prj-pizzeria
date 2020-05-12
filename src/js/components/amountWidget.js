@@ -20,7 +20,7 @@ class AmountWidget extends BaseWidget{
 
     // thisWidget.dom.wrapper = element;
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.amount.input);
-    thisWidget.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
+    thisWidget.dom.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
     thisWidget.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
   }
 
@@ -44,7 +44,7 @@ class AmountWidget extends BaseWidget{
       thisWidget.setValue(thisWidget.dom.input.value);
     });
 
-    thisWidget.linkDecrease.addEventListener('click', function (event) {
+    thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
       event.preventDefault();
       thisWidget.setValue(thisWidget.value - 1);
     });
