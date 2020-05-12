@@ -5,13 +5,13 @@ class BaseWidget {
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
 
-    thisWidget.value = initialValue;
+    thisWidget.correctValue = initialValue;
   }
 
   get value(){
     const thisWidget = this;
 
-    return thisWidget.correctValue;
+    return thisWidget.value;
   }
 
   set value(value) {
@@ -19,12 +19,18 @@ class BaseWidget {
 
     const newValue = thisWidget.parseValue(value);
 
-    if (newValue != thisWidget.correctValue && isValid(newValue)) {
-      thisWidget.correctValue = newValue;
+    if (newValue != thisWidget.value && isValid(newValue)) {
+      thisWidget.value = newValue;
       thisWidget.announce();
     }
 
     thisWidget.renderValue();
+  }
+
+  setValue(value) {
+    const thisWidget = this;
+
+    thisWidget.value = value;
   }
 
   parseValue(value) {
