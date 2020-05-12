@@ -1,4 +1,4 @@
-import {settings, select} from './settings.js';
+import {settings, select, classNames} from './settings.js';
 import Product from './components/product.js';
 import Cart from './components/cart.js';
 
@@ -9,6 +9,22 @@ const app = {
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
 
     thisApp.activatePage(thisApp.pages[0].id);
+  },
+
+  activatePage: function (pageId) {
+    const thisApp = this;
+
+    /* add class "active" to page with pageId/ [0] and remove it from all others not matching */
+    for(let page of thisApp.pages) {
+      if(page.id == pageId) {
+        page.classList.add(classNames.pages.active);
+      } else{
+        page.classList.remove(classNames.pages.active);
+      }
+    }
+
+    /* add class "active" to matching links and remove it from non-matching */
+
   },
 
   initMenu: function () {
