@@ -49,6 +49,21 @@ const app = {
     }
   },
 
+  initCart: function () {
+    const thisApp = this;
+
+    // wrapper koszyka
+    const cartElem = document.querySelector(select.containerOf.cart);
+    // instancja klasy Cart. poza app wywołanie z pomocą app.cart, dodawanie prod do koszyka
+    thisApp.cart = new Cart(cartElem);
+
+    thisApp.productList = document.querySelector(select.containerOf.menu);
+
+    thisApp.productList.addEventListener('add-to-cart', function (event) {
+      app.cart.add(event.detail.product);
+    });
+  },
+
   activatePage: function (pageId) {
     const thisApp = this;
 
@@ -109,21 +124,7 @@ const app = {
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
-  },
-
-  initCart: function () {
-    const thisApp = this;
-
-    // wrapper koszyka
-    const cartElem = document.querySelector(select.containerOf.cart);
-    // instancja klasy Cart. poza app wywołanie z pomocą app.cart, dodawanie prod do koszyka
-    thisApp.cart = new Cart(cartElem);
-
-    thisApp.productList = document.querySelector(select.containerOf.menu);
-
-    thisApp.productList.addEventListener('add-to-cart', function (event) {
-      app.cart.add(event.detail.product);
-    });
+    thisApp.initBooking();
   },
 };
 
