@@ -3,6 +3,12 @@ import Product from './components/product.js';
 import Cart from './components/cart.js';
 
 const app = {
+  initPages: function () {
+    const thisApp = this;
+
+    thisApp.pages = document.querySelector(select.containerOf.pages);
+  },
+
   initMenu: function () {
     const thisApp = this;
     // console.log('thisApp.data:', thisApp.data);
