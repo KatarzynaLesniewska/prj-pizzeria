@@ -3,6 +3,10 @@ import Product from './components/product.js';
 import Cart from './components/cart.js';
 
 const app = {
+  initBooking: function () {
+    const thisApp = this;
+  },
+
   initPages: function () {
     const thisApp = this;
 
