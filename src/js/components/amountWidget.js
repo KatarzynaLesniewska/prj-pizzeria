@@ -1,12 +1,15 @@
 import {select, settings} from '../settings.js';
+import BaseWidget from './BaseWidget.js';
 
 class AmountWidget {
   constructor(element) {
     const thisWidget = this;
 
     thisWidget.getElements(element);
+
     thisWidget.value = settings.amountWidget.defaultValue;
     thisWidget.setValue(thisWidget.input.value);
+
     thisWidget.initActions();
   }
 
