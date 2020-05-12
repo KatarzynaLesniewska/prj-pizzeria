@@ -1,4 +1,4 @@
-import {settings, select, classNames} from './settings.js';
+import { settings, select, classNames } from './settings.js';
 import Product from './components/product.js';
 import Cart from './components/cart.js';
 
@@ -15,12 +15,8 @@ const app = {
     const thisApp = this;
 
     /* add class "active" to page with pageId/ [0] and remove it from all others not matching */
-    for(let page of thisApp.pages) {
-      if(page.id == pageId) {
-        page.classList.add(classNames.pages.active);
-      } else{
-        page.classList.remove(classNames.pages.active);
-      }
+    for (let page of thisApp.pages) {
+      page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
 
     /* add class "active" to matching links and remove it from non-matching */
@@ -82,7 +78,7 @@ const app = {
 
     thisApp.productList = document.querySelector(select.containerOf.menu);
 
-    thisApp.productList.addEventListener('add-to-cart', function(event) {
+    thisApp.productList.addEventListener('add-to-cart', function (event) {
       app.cart.add(event.detail.product);
     });
   },
