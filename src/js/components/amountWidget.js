@@ -1,7 +1,7 @@
-import {select, settings} from '../settings.js';
+import { select, settings } from '../settings.js';
 import BaseWidget from './BaseWidget.js';
 
-class AmountWidget extends BaseWidget{
+class AmountWidget extends BaseWidget {
   constructor(element) {
     super(element, settings.amountWidget.defaultValue);
 
@@ -30,8 +30,8 @@ class AmountWidget extends BaseWidget{
 
   isValid(value) {
     return !isNaN(value)
-    && value >= settings.amountWidget.defaultMin
-    && value <= settings.amountWidget.defaultMax;
+      && value >= settings.amountWidget.defaultMin
+      && value <= settings.amountWidget.defaultMax;
   }
 
   renderValue() {
