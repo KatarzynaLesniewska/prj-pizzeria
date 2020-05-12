@@ -7,10 +7,9 @@ const app = {
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
+    thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
     thisApp.activatePage(thisApp.pages[0].id);
-
-    thisApp.navLinks = document.querySelectorAll(select.nav.links);
   },
 
   activatePage: function (pageId) {
@@ -22,6 +21,12 @@ const app = {
     }
 
     /* add class "active" to matching links and remove it from non-matching */
+    for (let link of thisApp.navLinks) {
+      link.classList.toggle(
+        classNames.nav.active,
+        link.getAttribute['href'] == '#' + pageId
+      );
+    }
   },
 
   initMenu: function () {
