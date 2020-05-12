@@ -14,7 +14,7 @@ class BaseWidget {
     return thisWidget.correctValue;
   }
 
-  setValue(value) {
+  set value(value) {
     const thisWidget = this;
 
     const newValue = thisWidget.parseValue(value);
