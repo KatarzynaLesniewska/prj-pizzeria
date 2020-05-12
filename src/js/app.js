@@ -5,6 +5,8 @@ import Cart from './components/cart.js';
 const app = {
   initBooking: function () {
     const thisApp = this;
+
+    const bookingElem = document.querySelector(select.containerOf.booking);
   },
 
   initPages: function () {
