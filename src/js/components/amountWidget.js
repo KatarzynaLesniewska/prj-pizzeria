@@ -9,7 +9,7 @@ class AmountWidget extends BaseWidget {
 
     thisWidget.getElements(element);
 
-    // thisWidget.value = settings.amountWidget.defaultValue;
+    // thisWidget.correctValue = settings.amountWidget.defaultValue;
     // thisWidget.setValue(thisWidget.dom.input.value);
 
     thisWidget.initActions();
@@ -33,7 +33,7 @@ class AmountWidget extends BaseWidget {
   renderValue() {
     const thisWidget = this;
 
-    thisWidget.dom.input.value = thisWidget.value;
+    thisWidget.dom.input.value = thisWidget.correctValue;
   }
 
   initActions() {
@@ -45,22 +45,13 @@ class AmountWidget extends BaseWidget {
 
     thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
       event.preventDefault();
-      thisWidget.setValue(thisWidget.value - 1);
+      thisWidget.setValue(thisWidget.correctValue - 1);
     });
 
     thisWidget.dom.linkIncrease.addEventListener('click', function (event) {
       event.preventDefault();
-      thisWidget.setValue(thisWidget.value + 1);
+      thisWidget.setValue(thisWidget.correctValue + 1);
     });
-  }
-
-  announce() {
-    const thisWidget = this;
-
-    const event = new CustomEvent('updated', {
-      bubbles: true
-    });
-    thisWidget.dom.wrapper.dispatchEvent(event);
   }
 }
 
