@@ -7,6 +7,8 @@ const app = {
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
+
+    thisApp.activatePage(thisApp.pages[0].id);
   },
 
   initMenu: function () {
@@ -49,6 +51,7 @@ const app = {
     // console.log('settings:', settings);
     // console.log('templates:', templates);
 
+    thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
   },
