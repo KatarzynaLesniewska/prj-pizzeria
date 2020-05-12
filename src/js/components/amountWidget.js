@@ -1,5 +1,4 @@
-import {select, settings} from './settings.js';
-import AmountWidget from './components/amountWidget.js';
+import {select, settings} from '../settings.js';
 
 class AmountWidget {
   constructor(element) {
