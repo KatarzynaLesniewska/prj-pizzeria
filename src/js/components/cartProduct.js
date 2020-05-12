@@ -79,7 +79,7 @@ class CartProduct {
       params: thisCartProduct.params,
     };
 
-    return infoAboutProduct
+    return infoAboutProduct;
   }
 }
 
