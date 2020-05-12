@@ -6,7 +6,11 @@ const app = {
   initBooking: function () {
     const thisApp = this;
 
+    // znaleźć wraper booking
     const bookingElem = document.querySelector(select.containerOf.booking);
+
+    // instancja klasy Booking. poza app wywołanie z pomocą app.cart, dodawanie prod do koszyka
+    thisApp.cart = new Booking (bookingElem);
   },
 
   initPages: function () {
