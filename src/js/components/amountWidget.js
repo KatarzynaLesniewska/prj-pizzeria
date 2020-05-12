@@ -24,19 +24,6 @@ class AmountWidget extends BaseWidget{
     thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
   }
 
-  setValue(value) {
-    const thisWidget = this;
-
-    const newValue = thisWidget.parseValue(value);
-
-    if (newValue != thisWidget.value && isValid(newValue)) {
-      thisWidget.value = newValue;
-      thisWidget.announce();
-    }
-
-    thisWidget.renderValue();
-  }
-
   parseValue(value) {
     return parseInt(value);
   }
