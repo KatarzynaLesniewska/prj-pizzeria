@@ -1,11 +1,7 @@
-import {select, templates} from '../settings.js';
+import {select, templates, settings} from '../settings.js';
 import AmountWidget from './amountWidget.js';
 import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
-
-// import app from '../app.js';
-// import thisApp from '../app.js';
-// import thisWidget from './DatePicker.js';
 
 class Booking {
   constructor(wrapper) {
@@ -21,6 +17,25 @@ class Booking {
   getData() {
     const thisBooking = this;
 
+    const params = {
+      booking: [
+
+      ],
+      eventsCurrent: [
+
+      ],
+      eventsRepeat: [
+
+      ],
+    };
+
+    console.log('getData params', params);
+
+    const urls = {
+      booking:        settings.db.url + '/' + settings.db.booking + '?',
+      eventsCurrent:  settings.db.url + '/' + settings.db.event   + '?',
+      eventsRepeat:   settings.db.url + '/' + settings.db.event   + '?',
+    };
   }
 
   render(wrapper) {
