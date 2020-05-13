@@ -4,6 +4,7 @@ import AmountWidget from './amountWidget.js';
 import app from '../app.js';
 import thisApp from '../app.js';
 import DatePicker from './DatePicker.js';
+import thisWidget from './DatePicker.js';
 
 class Booking {
   constructor() {
@@ -21,7 +22,7 @@ class Booking {
     // i zapisz w niej element pasujący do selektora
     // zapisanego w select.widgets.datePicker.wrapper,
     // wyszukany we wrapperze zapisanym w tej klasie.
-    thisBooking.dom.datePicker;
+    thisBooking.dom.datePicker = thisWidget.dom.input;
 
     // generowanie kogu html za pomoca szablonu
     const generatedHTML = templates.bookingWidget();

@@ -8,12 +8,13 @@ class DatePicker extends BaseWidget {
   constructor(wrapper) {
     super(wrapper, utils.dateToStr(new Date()));
 
-    const thisWidget = this;
+    //const thisWidget = this;
 
     // której przypisujemy pojedynczy element znaleziony w
     // thisWidget.dom.wrapper za pomocą selektora zapisanego
     // w select.widgets.datePicker.input
-    thisWidget.dom.input;
+    //thisWidget.singleElem = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.input);
+    thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.input);
 
     initPlugin();
   }
@@ -25,9 +26,10 @@ class DatePicker extends BaseWidget {
 
     // która ma być datą późniejszą od thisWidget.minDate o
     // ilość dni zdefiniowaną w settings.datePicker.maxDaysInFuture
-    // thisWidget.maxDate
+    thisWidget.maxDate = thisWidget.minDate + settings.datePicker.maxDaysInFuture;
 
-    /// zainicjować plugin flatpickr z odpowiednimi opcjami
+    // zainicjować plugin flatpickr z odpowiednimi opcjami
+    // flatpickr(thisWidget.dom.input, {altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d",});
     flatpickr(thisWidget.dom.input, options);
 
     const options = {
@@ -35,7 +37,6 @@ class DatePicker extends BaseWidget {
       altFormat: "F j, Y",
       dateFormat: "Y-m-d",
     },
-
 
     //  aby domyślna data była ustawiona na wartość thisWidget.minDate
 
