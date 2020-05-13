@@ -3,7 +3,6 @@ import BaseWidget from './BaseWidget.js';
 // kolejna próba "debugging" lol
 import utils from '../utils.js';
 
-
 class DatePicker extends BaseWidget {
   constructor(wrapper) {
     super(wrapper, utils.dateToStr(new Date()));
