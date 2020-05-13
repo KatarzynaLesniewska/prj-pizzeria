@@ -35,23 +35,28 @@ class DatePicker extends BaseWidget {
     const options = {
       altInput: true,
       altFormat: "F j, Y",
-      dateFormat: "Y-m-d",
-    },
-
-    //  aby domyślna data była ustawiona na wartość thisWidget.minDate
-
-    // najwcześniejsza data równa thisWidget.minDate
-
-    // najpóźniejsza data do wybrania ma być równa thisWidget.maxDate
-
-    // pierwszym dniem tygodnia zawsze był poniedziałek
-    // (wzoruj się na przykładzie z dokumentacji, zawierającym firstDayOfWeek
-
-    // restauracja nieczynna w pon, funkcję do ustawiania dat niedostępnych w
-    // kalendarzu (zmodyfikuj przykład z dokumentacji
+      dateFormat: "Y- m - d",
+      defaultDate: thisWidget.minDate,
+      minDate: thisWidget.minDate,
+      maxDate: thisWidget.maxDate,
+      disable: [
+        function (date) {
+          // return true to disable
+          return (date.getDay() === 1);
+        }
+      ],
+      locale: {
+        firstDayOfWeek: 1 // start week on Monday
+      },
+    }
 
     // w momencie wykrycia zmiany wartości przez plugin, chcemy ustawiać wartość
     // właściwości thisWidget.value na dateStr widoczne w dokumentacji pluginu.
+    instance.config.onChange.push(function() { thisWidget.value} );
+
+    onChange: function(dateStr) {
+      //...
+    },
   }
 
   parseValue() {
