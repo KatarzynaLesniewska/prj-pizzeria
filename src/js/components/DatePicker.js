@@ -52,11 +52,11 @@ class DatePicker extends BaseWidget {
 
     // w momencie wykrycia zmiany wartości przez plugin, chcemy ustawiać wartość
     // właściwości thisWidget.value na dateStr widoczne w dokumentacji pluginu.
-    instance.config.onChange.push(function() { thisWidget.value} );
+    instance.config.onChange.push(function() {} );
 
-    onChange: function(dateStr) {
-      //...
-    },
+    onChange: function (dateStr) {
+      dateStr = thisWidget.value
+    }
   }
 
   parseValue() {
