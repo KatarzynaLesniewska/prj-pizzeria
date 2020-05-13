@@ -1,22 +1,29 @@
-// kolejna próba debugging
-import {templates} from '../settings.js';
+import {select, templates} from '../settings.js';
 import AmountWidget from './amountWidget.js';
-import app from '../app.js';
-import thisApp from '../app.js';
 import DatePicker from './DatePicker.js';
-import thisWidget from './DatePicker.js';
 import HourPicker from './HourPicker.js';
 
+// import app from '../app.js';
+// import thisApp from '../app.js';
+// import thisWidget from './DatePicker.js';
+
 class Booking {
-  constructor() {
+  constructor(wrapper) {
     const thisBooking = this;
 
     // ??? wywoływać metodę render, przekazując jej argument, który otrzymuje z app.initBooking
-    thisBooking.render(app.initBooking);
+    // thisBooking.render(app.initBooking);
+    thisBooking.render(wrapper);
     thisBooking.initWidget();
+    thisBooking.getData();
   }
 
-  render() {
+  getData() {
+    const thisBooking = this;
+
+  }
+
+  render(wrapper) {
     const thisBooking = this;
 
     // stwórz właściwość thisBooking.dom.datePicker

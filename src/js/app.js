@@ -8,10 +8,12 @@ const app = {
     const thisApp = this;
 
     // znaleźć wraper booking
-    const bookingElem = document.querySelector(select.containerOf.booking);
+    // const bookingElem = document.querySelector(select.containerOf.booking);
+    const wrapper = document.querySelector(select.containerOf.booking);
 
     // instancja klasy Booking. poza app wywołanie z pomocą app.booking,
-    thisApp.booking = new Booking (bookingElem);
+    // thisApp.booking = new Booking (bookingElem);
+    thisApp.booking = new Booking (wrapper);
   },
 
   initPages: function () {
