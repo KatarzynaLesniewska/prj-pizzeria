@@ -1,6 +1,6 @@
 import BaseWidget from './BaseWidget.js';
 
-// kolejna próba "debuging" lol
+// kolejna próba "debugging" lol
 import utils from '../utils.js';
 
 
@@ -28,12 +28,12 @@ class DatePicker extends BaseWidget {
     // thisWidget.maxDate
 
     /// zainicjować plugin flatpickr z odpowiednimi opcjami
-    flatpickr(thisWidget.dom.input, options) {
+    flatpickr(thisWidget.dom.input, options){
       const options = {
         altInput: true,
         altFormat: "F j, Y",
         dateFormat: "Y-m-d",
-      }
+      },
     };
 
     //  aby domyślna data była ustawiona na wartość thisWidget.minDate

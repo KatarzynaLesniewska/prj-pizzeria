@@ -1,3 +1,10 @@
+// kolejna próba debugging
+import {templates} from '../settings.js';
+import AmountWidget from './amountWidget.js';
+import app from '../app.js';
+import thisApp from '../app.js';
+import DatePicker from './DatePicker.js';
+
 class Booking {
   constructor() {
     const thisBooking = this;
@@ -26,13 +33,13 @@ class Booking {
     thisBooking.dom.push(thisApp.bookingElem == app.initBooking);
 
     // ??? zawartość wrappera zamieniać na kod HTML wygenerowany z szablonu
-    generatedHTML
+    generatedHTML;
 
     // ??? zapisywać pojedynczy element znaleziony we wrapperze i pasujący do selektora
-    thisBooking.dom.peopleAmount = == select.booking.peopleAmount;
+    // thisBooking.dom.peopleAmount = == select.booking.peopleAmount;
 
     // ??? analogicznie do peopleAmount znaleźć i zapisać element dla hoursAmount
-    thisBooking.dom.hoursAmount = == select.booking.hoursAmount;
+    // thisBooking.dom.hoursAmount = == select.booking.hoursAmount;
   }
 
   initWidget() {

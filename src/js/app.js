@@ -130,3 +130,5 @@ const app = {
 };
 
 app.init();
+
+export default app;
