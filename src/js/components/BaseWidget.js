@@ -1,3 +1,8 @@
+// importuję to w ramach próby pozbycia się błędu:
+// isValid L27 (warunek if) is undefined, nie wiem z jakim rezultatem
+// czy to mam sens?? xD
+import isValid from './AmountWidget.js';
+
 class BaseWidget {
   constructor(wrapperElement, initialValue) {
     const thisWidget = this;
