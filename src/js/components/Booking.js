@@ -5,6 +5,7 @@ import app from '../app.js';
 import thisApp from '../app.js';
 import DatePicker from './DatePicker.js';
 import thisWidget from './DatePicker.js';
+import HourPicker from './HourPicker.js';
 
 class Booking {
   constructor() {
@@ -51,6 +52,8 @@ class Booking {
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
 
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
+
+    thisBooking.HourPicker = new HourPicker(thisBooking.dom.datePicker);
   }
 }
 
