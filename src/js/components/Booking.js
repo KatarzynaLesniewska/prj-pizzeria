@@ -198,9 +198,50 @@ class Booking {
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
-    thisBooking.dom.wrapper.addEventListener('updated', function(){
+    thisBooking.dom.wrapper.addEventListener('updated', function () {
       thisBooking.updateDOM();
     });
+  }
+
+  sendBooking() {
+    const thisBooking = this;
+
+    // wysyłanie zamówienia na endpoint booking? metodą POST ???
+    const url = settings.db.url + '/' + settings.db.booking;
+
+    const payload = {
+      // czy może: thisBooking.booked.date albo thisBooking.item.date ??
+      address: 'test',
+      date: thisBooking.date,
+      hour: thisBooking.hour,
+      duration: thisBooking.duration,
+      table: thisBooking.table,
+      startHour: thisBooking.startHour,
+      hourBlock: thisBooking.hourBlock,
+      // products: [], jakiś odpowiednik??
+    };
+
+    // tu nie wiem ....
+    for (let product of thisBooking.products) {
+      payload.products.push(product.getData());
+    }
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+
+    fetch(url, options)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (parsedResponse) {
+        console.log('parsedResponse:', parsedResponse);
+      });
+
   }
 }
 
