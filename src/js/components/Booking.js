@@ -13,6 +13,8 @@ class Booking {
     thisBooking.render(wrapper);
     thisBooking.initWidget();
     thisBooking.getData();
+    thisBooking.sendBooking();
+    thisBooking.clickedTable();
   }
 
   getData() {
@@ -203,6 +205,18 @@ class Booking {
     });
   }
 
+  clickedTable() {
+    const thisBooking = this;
+
+    thisBooking.dom.table.addEventListener('clicked', function (event) {
+      event.preventDefault();
+      thisBooking.table.classList.add(classNames.booking.tableBooked);
+    });
+
+    // gdzie przekazać informację o tym 'wydarzeniu' ???
+  }
+  // gdzie wywołać?? czy to w ogóle ma być metoda?? :)
+
   sendBooking() {
     const thisBooking = this;
 
@@ -248,6 +262,7 @@ class Booking {
         }
       });
 
+    // gdzie wywyołać tą metodę?? w constructorze ???
   }
 }
 
