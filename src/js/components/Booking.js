@@ -50,12 +50,25 @@ class Booking {
 
     // console.log('getData urls', urls);
 
-    fetch(urls.booking)
-      .then(function(bookingResponse){
-        return bookingResponse.json();
+    Promise.all([
+      fetch(urls.booking),
+      fetch(urls.eventsCurrent),
+      fetch(urls.eventsRepeat),
+    ])
+      .then(function (allResponse) {
+        const bookingResponse = allResponse[0];
+        const eventsCurrentResponse = allResponse[1];
+        const eventsRepeatResponse = allResponse[2];
+        return Promise.all([
+          bookingResponse.json(),
+          eventsCurrentResponse.json(),
+          eventsRepeatResponse.json(),
+        ]);
       })
-      .then(function(bookings){
+      .then(function ([bookings, eventsCurrent, eventsRepeat]) {
         console.log(bookings);
+        console.log(eventsCurrent);
+        console.log(eventsRepeat);
       });
   }
 
