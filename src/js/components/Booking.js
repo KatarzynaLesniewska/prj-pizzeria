@@ -1,4 +1,4 @@
-import {select, templates, settings} from '../settings.js';
+import { select, templates, settings } from '../settings.js';
 import utils from '../utils.js';
 import AmountWidget from './amountWidget.js';
 import DatePicker from './DatePicker.js';
@@ -18,29 +18,32 @@ class Booking {
   getData() {
     const thisBooking = this;
 
+    const startDateParam = settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate);
+    const endDateParam = settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate);
+
     const params = {
       booking: [
-        settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate),
-        settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate),
+        startDateParam,
+        endDateParam,
       ],
       eventsCurrent: [
-        settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate),
-        settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate),
+        startDateParam,
+        endDateParam,
       ],
       eventsRepeat: [
-        settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate),
+        endDateParam,
       ],
     };
 
     console.log('getData params', params);
 
     const urls = {
-      booking:        settings.db.url + '/' + settings.db.booking
-                                      + '?' + params.booking.join('&'),
-      eventsCurrent:  settings.db.url + '/' + settings.db.event
-                                      + '?' + params.eventsCurrent.join('&'),
-      eventsRepeat:   settings.db.url + '/' + settings.db.event
-                                      + '?' + params.eventsRepeat.join('&'),
+      booking: settings.db.url + '/' + settings.db.booking
+        + '?' + params.booking.join('&'),
+      eventsCurrent: settings.db.url + '/' + settings.db.event
+        + '?' + params.eventsCurrent.join('&'),
+      eventsRepeat: settings.db.url + '/' + settings.db.event
+        + '?' + params.eventsRepeat.join('&'),
     };
 
     console.log('getData urls', urls);
