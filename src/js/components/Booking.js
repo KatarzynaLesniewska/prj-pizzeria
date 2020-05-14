@@ -1,4 +1,5 @@
 import {select, templates, settings} from '../settings.js';
+import utils from '../utils.js';
 import AmountWidget from './amountWidget.js';
 import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
@@ -19,13 +20,15 @@ class Booking {
 
     const params = {
       booking: [
-
+        settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate),
+        settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate),
       ],
       eventsCurrent: [
-
+        settings.db.dateStartParamKey + '=' + utils.dateToStr(thisBooking.datePicker.minDate),
+        settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate),
       ],
       eventsRepeat: [
-
+        settings.db.dateEndParamKey + '=' + utils.dateToStr(thisBooking.datePicker.maxDate),
       ],
     };
 

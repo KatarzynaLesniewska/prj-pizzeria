@@ -21,11 +21,19 @@ class DatePicker extends BaseWidget {
   initPlugin() {
     const thisWidget = this;
 
+    // data początku zakresu
+    // data początkowa ustawiona dla DatePickera
+    // tu się znajduje OBIEKT daty
+    thisBooking.datePicker.minDate
+
     thisWidget.minDate = new Date(thisWidget.value);
 
     // która ma być datą późniejszą od thisWidget.minDate o
     // ilość dni zdefiniowaną w settings.datePicker.maxDaysInFuture
     thisWidget.maxDate = thisWidget.minDate + settings.datePicker.maxDaysInFuture;
+
+    // data końcowa zakresu
+    thisBooking.datePicker.maxDate
 
     // zainicjować plugin flatpickr z odpowiednimi opcjami
     // flatpickr(thisWidget.dom.input, {altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d",});
