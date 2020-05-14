@@ -32,10 +32,15 @@ class Booking {
     console.log('getData params', params);
 
     const urls = {
-      booking:        settings.db.url + '/' + settings.db.booking + '?',
-      eventsCurrent:  settings.db.url + '/' + settings.db.event   + '?',
-      eventsRepeat:   settings.db.url + '/' + settings.db.event   + '?',
+      booking:        settings.db.url + '/' + settings.db.booking
+                                      + '?' + params.booking.join('&'),
+      eventsCurrent:  settings.db.url + '/' + settings.db.event
+                                      + '?' + params.eventsCurrent.join('&'),
+      eventsRepeat:   settings.db.url + '/' + settings.db.event
+                                      + '?' + params.eventsRepeat.join('&'),
     };
+
+    console.log('getData urls', urls);
   }
 
   render(wrapper) {
