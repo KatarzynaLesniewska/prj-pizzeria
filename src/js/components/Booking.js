@@ -15,6 +15,7 @@ class Booking {
     thisBooking.getData();
     thisBooking.sendBooking();
     thisBooking.clickedTable();
+    thisBooking.unmarkTable();
   }
 
   getData() {
@@ -216,6 +217,21 @@ class Booking {
     // gdzie przekazać informację o tym 'wydarzeniu' ???
   }
   // gdzie wywołać?? czy to w ogóle ma być metoda?? :)
+
+  unmarkTable() {
+    const thisBooking = this;
+
+    thisBooking.dom.datePicker.addEventListener('change', function (event) {
+      event.preventDefault();
+      thisBooking.table.classList.remove(classNames.booking.tableBooked);
+    });
+
+    thisBooking.dom.hourPicker.addEventListener('change', function (event) {
+      event.preventDefault();
+      thisBooking.table.classList.remove(classNames.booking.tableBooked);
+    });
+  }
+  // gdzie wywołać? gdzie przekazać? czy to ma być metoda???
 
   sendBooking() {
     const thisBooking = this;
