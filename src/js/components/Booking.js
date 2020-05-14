@@ -99,6 +99,8 @@ class Booking {
     }
 
     // console.log('thisBooking.booked', thisBooking.booked);
+
+    thisBooking.updateDOM();
   }
 
   makeBooked(date, hour, duration, table) {
@@ -120,8 +122,8 @@ class Booking {
     }
   }
 
-  updateDOM () {
-    const thisBooking =this;
+  updateDOM() {
+    const thisBooking = this;
 
     thisBooking.date = thisBooking.DatePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
@@ -142,7 +144,7 @@ class Booking {
         tableId = parseInt(tableId);
       }
 
-      if(
+      if (
         !allAvailable
         &&
         thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId) > -1
@@ -191,12 +193,14 @@ class Booking {
     const thisBooking = this;
 
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
-
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
 
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
+    thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
-    thisBooking.HourPicker = new HourPicker(thisBooking.dom.datePicker);
+    thisBooking.dom.wrapper.addEventListener('updated', function(){
+      thisBooking.updateDOM();
+    });
   }
 }
 
