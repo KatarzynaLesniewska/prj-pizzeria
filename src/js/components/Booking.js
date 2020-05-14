@@ -27,10 +27,12 @@ class Booking {
         endDateParam,
       ],
       eventsCurrent: [
+        settings.db.notRepeatParam,
         startDateParam,
         endDateParam,
       ],
       eventsRepeat: [
+        settings.db.repeatParam,
         endDateParam,
       ],
     };
