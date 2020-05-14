@@ -1,4 +1,4 @@
-import { select, templates, settings } from '../settings.js';
+import { select, templates, settings, classNames } from '../settings.js';
 import utils from '../utils.js';
 import AmountWidget from './amountWidget.js';
 import DatePicker from './DatePicker.js';
@@ -117,6 +117,40 @@ class Booking {
       }
 
       thisBooking.booked[date][hourBlock].push(table);
+    }
+  }
+
+  updateDOM () {
+    const thisBooking =this;
+
+    thisBooking.date = thisBooking.DatePicker.value;
+    thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
+
+    let allAvailable = false;
+
+    if (
+      typeof thisBooking.booked[thisBooking.date] == 'undefined'
+      ||
+      typeof thisBooking.booked[thisBooking.date] == 'undefined'
+    ) {
+      allAvailable = true;
+    }
+
+    for (let table of thisBooking.dom.tables) {
+      let tableId = table.getAttribute(settings.booking.tableIdAttribute);
+      if (!isNaN(tableId)) {
+        tableId = parseInt(tableId);
+      }
+
+      if(
+        !allAvailable
+        &&
+        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId) > -1
+      ) {
+        table.classList.add(classNames.booking.tableBooked);
+      } else {
+        table.classList.remove(classNames.booking.tableBooked);
+      }
     }
   }
 
