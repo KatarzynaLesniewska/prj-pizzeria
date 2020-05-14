@@ -236,10 +236,16 @@ class Booking {
 
     fetch(url, options)
       .then(function (response) {
+        // const sendBookingResponse;
         return response.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse:', parsedResponse);
+        // console.log('parsedResponse:', parsedResponse);
+        // thisBooking.parseData(parsedResponse);
+
+        if (parsedResponse) {
+          thisBooking.table.classList.remove(classNames.booking.tableBooked);
+        }
       });
 
   }
