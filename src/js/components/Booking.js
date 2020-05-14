@@ -74,12 +74,12 @@ class Booking {
       });
   }
 
-  parseData(bookings, eventsCurrent, eventsRepeat){
+  parseData(bookings, eventsCurrent, eventsRepeat) {
     const thisBooking = this;
 
     thisBooking.booked = {};
 
-    for(let item of eventsCurrent) {
+    for (let item of eventsCurrent) {
       thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
 
     }
@@ -87,20 +87,23 @@ class Booking {
     console.log('thisBooking.booked', thisBooking.booked);
   }
 
-  makeBooked(date, hour, duration, table){
+  makeBooked(date, hour, duration, table) {
     const thisBooking = this;
 
-    if(typeof thisBooking.booked[date] == 'undefined') {
+    if (typeof thisBooking.booked[date] == 'undefined') {
       thisBooking.booked[date] = {};
     }
 
     const startHour = utils.hourToNumber(hour);
 
-    if(typeof thisBooking.booked[date][startHour] == 'undefined') {
-      thisBooking.booked[date][startHour] = [];
-    }
+    for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5) {
+      // console.log('loop', hourBlock);
+      if (typeof thisBooking.booked[date][hourBlock] == 'undefined') {
+        thisBooking.booked[date][hourBlock] = [];
+      }
 
-    thisBooking.booked[date][startHour].push(table);
+      thisBooking.booked[date][hourBlock].push(table);
+    }
   }
 
   render(wrapper) {
