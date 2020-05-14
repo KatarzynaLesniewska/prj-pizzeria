@@ -176,8 +176,9 @@ class Booking {
 
     // stwórz właściwość thisBooking.dom.datePicker i zapisz w niej element pasujący do selektora zapisanego w select.widgets.datePicker.wrapper, wyszukany we wrapperze zapisanym w tej klasie.
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
-
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
+
+    thisBooking.dom.tables = thisBooking.dom.wrapper.querySelector(select.booking.tables);
 
     // już nie wiem co to
     // thisBooking.dom.hoursAmount = thisBooking.dom.wrapper.querySelector(select.booking.hoursAmount);
