@@ -52,6 +52,13 @@ class AmountWidget extends BaseWidget {
       event.preventDefault();
       thisWidget.setValue(thisWidget.value + 1);
     });
+
+    /* czy to ma być tu czy gdzieś indziej?
+    thisBooking.dom.table.addEventListener('clicked', function (event) {
+      event.preventDefault();
+      thisBooking.table.classList.add(classNames.booking.tableBooked);
+    });
+    */
   }
 }
 

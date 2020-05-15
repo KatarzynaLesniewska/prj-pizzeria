@@ -1,7 +1,7 @@
 import { settings, select, classNames } from './settings.js';
 import Product from './components/product.js';
 import Cart from './components/cart.js';
-import Booking from './components/cart.js';
+import Booking from './components/Booking.js';
 
 const app = {
   initBooking: function () {

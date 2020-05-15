@@ -1,20 +1,18 @@
 import BaseWidget from './BaseWidget.js';
 import {settings, select} from '../settings.js';
-import thisWidget from './DatePicker.js';
 
 class HourPicker extends BaseWidget {
   constructor(wrapper) {
     super(wrapper, settings.hours.open);
 
-    //const thisWidget = this;
+    const thisWidget = this;
 
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.input);
 
-    // thisWidget.dom.output
     thisWidget.dom.output = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.inthisWidget.dom.thisWidget.dom.output);
 
+    thisWidget.initPlugin();
 
-    initPlugin();
     thisWidget.value = thisWidget.dom.input;
   }
 
@@ -23,7 +21,8 @@ class HourPicker extends BaseWidget {
 
     rangeSlider.create(thisWidget.dom.input);
 
-    const input = thisWidget.dom.input.addEventListener('change', function {
+    // const input =
+    thisWidget.dom.input.addEventListener('change', function () {
       thisWidget.value = thisWidget.dom.input;
     });
   }
@@ -32,13 +31,15 @@ class HourPicker extends BaseWidget {
   // i zwracać wartość otrzymaną z tej funkcji. Ta funkcja zamienia liczby na zapis
   // godzinowy, czyli np. 12 na '12:00', a 12.5 na '12:30'
   parseValue() {
-    const thisWidget = this;
+    // const thisWidget = this;
 
-    return parseValue();
+    // return utiles.numberToHour(thisWidget.value);
+    return true;
   }
 
+  // może zwracac true... ?
   isValid() {
-    const thisWidget = this;
+    // const thisWidget = this;
 
     return true;
   }
@@ -48,7 +49,7 @@ class HourPicker extends BaseWidget {
   renderValue() {
     const thisWidget = this;
 
-    thisWidget.dom.output = thisWidget.value;
+    thisWidget.dom.output.innerHTML = thisWidget.value;
   }
 }
 

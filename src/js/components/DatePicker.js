@@ -1,13 +1,12 @@
 import BaseWidget from './BaseWidget.js';
-
-// kolejna próba "debugging" lol
-import utils from '../utils.js';
+import {utils} from '../utils.js';
+import {settings, select} from '../settings.js';
 
 class DatePicker extends BaseWidget {
   constructor(wrapper) {
     super(wrapper, utils.dateToStr(new Date()));
 
-    //const thisWidget = this;
+    const thisWidget = this;
 
     // której przypisujemy pojedynczy element znaleziony w
     // thisWidget.dom.wrapper za pomocą selektora zapisanego
@@ -15,7 +14,14 @@ class DatePicker extends BaseWidget {
     //thisWidget.singleElem = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.input);
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.input);
 
-    initPlugin();
+    // initPlugin();
+    thisWidget.initPlugin();
+
+    /*
+    thisWidget.parseValue();
+    thisWidget.isValid();
+    thisWidget.renderValue();
+    */
   }
 
   initPlugin() {
@@ -24,7 +30,8 @@ class DatePicker extends BaseWidget {
     // data początku zakresu
     // data początkowa ustawiona dla DatePickera
     // tu się znajduje OBIEKT daty
-    thisBooking.datePicker.minDate
+    // tego/ takiego czegoś podobno nie ma
+    // thisBooking.datePicker.minDate
 
     thisWidget.minDate = new Date(thisWidget.value);
 
@@ -35,16 +42,13 @@ class DatePicker extends BaseWidget {
 
 
     // data końcowa zakresu
-    thisBooking.datePicker.maxDate
-
-    // zainicjować plugin flatpickr z odpowiednimi opcjami
-    // flatpickr(thisWidget.dom.input, {altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d",});
-    flatpickr(thisWidget.dom.input, options);
+    // tego tez podobno nie ma ...
+    // thisBooking.datePicker.maxDate
 
     const options = {
       altInput: true,
-      altFormat: "F j, Y",
-      dateFormat: "Y- m - d",
+      altFormat: 'F j, Y',
+      dateFormat: 'Y-m-d',
       defaultDate: thisWidget.minDate,
       minDate: thisWidget.minDate,
       maxDate: thisWidget.maxDate,
@@ -57,22 +61,35 @@ class DatePicker extends BaseWidget {
       locale: {
         firstDayOfWeek: 1 // start week on Monday
       },
+
+      // w momencie wykrycia zmiany wartości przez plugin, chcemy ustawiać wartość
+      // właściwości thisWidget.value na dateStr widoczne w dokumentacji pluginu.
+      // lnijkę poniżej niby mozna wywalić
+      // instance.config.onChange.push(function() {} );
+
+      onChange: function (dateStr) {
+        // dateStr = thisWidget.value;
+        thisWidget.value = dateStr;
+      },
+
+      // zainicjować plugin flatpickr z odpowiednimi opcjami
+      // flatpickr(thisWidget.dom.input, {altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d",});
+      // flatpickr(thisWidget.dom.input, options);
     }
 
-    // w momencie wykrycia zmiany wartości przez plugin, chcemy ustawiać wartość
-    // właściwości thisWidget.value na dateStr widoczne w dokumentacji pluginu.
-    instance.config.onChange.push(function() {} );
-
-    onChange: function (dateStr) {
-      dateStr = thisWidget.value
-    }
+    // zainicjować plugin flatpickr z odpowiednimi opcjami
+    // flatpickr(thisWidget.dom.input, {altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d",});
+    // ?????? czy tak  ma być????
+    thisWidget.flatpickr(thisWidget.dom.input, options);
   }
 
   // ma jedynie zwracać argument
   parseValue() {
     const thisWidget = this;
 
-    return parseValue();
+    // return parseValue(thisWidget.value);
+    // return parseValue();
+    return true;
   }
 
   // ma zwracać true
@@ -80,7 +97,6 @@ class DatePicker extends BaseWidget {
     const thisWidget = this;
 
     return true;
-    // ???? return isValid(true);
   }
 
   // możesz ją stworzyć z pustą wartością, tylko po to,

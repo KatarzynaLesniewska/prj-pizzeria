@@ -1,5 +1,5 @@
 import { select, templates, settings, classNames } from '../settings.js';
-import utils from '../utils.js';
+import {utils} from '../utils.js';
 import AmountWidget from './amountWidget.js';
 import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
@@ -204,8 +204,28 @@ class Booking {
     thisBooking.dom.wrapper.addEventListener('updated', function () {
       thisBooking.updateDOM();
     });
+
+    /* czy to ma być tu czy gdzies indziej?
+    thisBooking.dom.table.addEventListener('clicked', function (event) {
+      event.preventDefault();
+      thisBooking.table.classList.add(classNames.booking.tableBooked);
+    });
+    */
+
+    // odznaczanie stolika kiedy klient zmieni datę lub godzinę
+    thisBooking.dom.datePicker.addEventListener('updated', function (event) {
+      event.preventDefault();
+      thisBooking.table.classList.remove(classNames.booking.tableBooked);
+    });
+
+    thisBooking.dom.hourPicker.addEventListener('updated', function (event) {
+      event.preventDefault();
+      thisBooking.table.classList.remove(classNames.booking.tableBooked);
+    });
   }
 
+
+  /*   to mam przeniesc do initActions, ale w Booking nie ma initActions.....
   clickedTable() {
     const thisBooking = this;
 
@@ -213,25 +233,26 @@ class Booking {
       event.preventDefault();
       thisBooking.table.classList.add(classNames.booking.tableBooked);
     });
-
-    // gdzie przekazać informację o tym 'wydarzeniu' ???
   }
-  // gdzie wywołać?? czy to w ogóle ma być metoda?? :)
+  */
 
+
+  /*  to mam przenieść do initWidget
   unmarkTable() {
     const thisBooking = this;
 
-    thisBooking.dom.datePicker.addEventListener('change', function (event) {
+    thisBooking.dom.datePicker.addEventListener('updated', function (event) {
       event.preventDefault();
       thisBooking.table.classList.remove(classNames.booking.tableBooked);
     });
 
-    thisBooking.dom.hourPicker.addEventListener('change', function (event) {
+    thisBooking.dom.hourPicker.addEventListener('updated', function (event) {
       event.preventDefault();
       thisBooking.table.classList.remove(classNames.booking.tableBooked);
     });
   }
-  // gdzie wywołać? gdzie przekazać? czy to ma być metoda???
+  */
+
 
   sendBooking() {
     const thisBooking = this;
