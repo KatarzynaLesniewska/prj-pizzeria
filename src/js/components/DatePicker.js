@@ -29,8 +29,10 @@ class DatePicker extends BaseWidget {
     thisWidget.minDate = new Date(thisWidget.value);
 
     // która ma być datą późniejszą od thisWidget.minDate o
-    // ilość dni zdefiniowaną w settings.datePicker.maxDaysInFuture
-    thisWidget.maxDate = thisWidget.minDate + settings.datePicker.maxDaysInFuture;
+    // ilość dni zdefiniowaną w settings.datePicker.maxDaysInFuture utils.addDays
+    // thisWidget.maxDate = thisWidget.minDate + settings.datePicker.maxDaysInFuture;
+    thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
+
 
     // data końcowa zakresu
     thisBooking.datePicker.maxDate
@@ -66,16 +68,19 @@ class DatePicker extends BaseWidget {
     }
   }
 
+  // ma jedynie zwracać argument
   parseValue() {
     const thisWidget = this;
 
     return parseValue();
   }
 
+  // ma zwracać true
   isValid() {
     const thisWidget = this;
 
     return true;
+    // ???? return isValid(true);
   }
 
   // możesz ją stworzyć z pustą wartością, tylko po to,
