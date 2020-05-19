@@ -1,8 +1,3 @@
-// importuję to w ramach próby pozbycia się błędu:
-// isValid L27 (warunek if) is undefined, nie wiem z jakim rezultatem
-// czy to mam sens?? xD
-import isValid from './AmountWidget.js';
-
 class BaseWidget {
   constructor(wrapperElement, initialValue) {
     const thisWidget = this;
@@ -16,7 +11,7 @@ class BaseWidget {
   get value(){
     const thisWidget = this;
 
-    return thisWidget.value;
+    return thisWidget.correctValue;
   }
 
   set value(value) {
@@ -24,7 +19,7 @@ class BaseWidget {
 
     const newValue = thisWidget.parseValue(value);
 
-    if (newValue != thisWidget.value && isValid(newValue)) {
+    if (newValue != thisWidget.value && thisWidget.isValid(newValue)) {
       thisWidget.value = newValue;
       thisWidget.announce();
     }
