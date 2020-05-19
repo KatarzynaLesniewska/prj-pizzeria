@@ -71,39 +71,20 @@ class DatePicker extends BaseWidget {
         // dateStr = thisWidget.value;
         thisWidget.value = dateStr;
       },
+    };
 
-      // zainicjować plugin flatpickr z odpowiednimi opcjami
-      // flatpickr(thisWidget.dom.input, {altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d",});
-      // flatpickr(thisWidget.dom.input, options);
-    }
-
-    // zainicjować plugin flatpickr z odpowiednimi opcjami
-    // flatpickr(thisWidget.dom.input, {altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d",});
-    // ?????? czy tak  ma być????
-    thisWidget.flatpickr(thisWidget.dom.input, options);
+    flatpickr(thisWidget.dom.input, options);
   }
 
-  // ma jedynie zwracać argument
-  parseValue() {
-    const thisWidget = this;
-
-    // return parseValue(thisWidget.value);
-    // return parseValue();
-    return true;
+  parseValue(value) {
+    return value;
   }
 
-  // ma zwracać true
   isValid() {
-    const thisWidget = this;
-
     return true;
   }
 
-  // możesz ją stworzyć z pustą wartością, tylko po to,
-  // aby nadpisać domyślną metodę w BaseWidget
-  renderValue() {
-    const thisWidget = this;
-  }
+  renderValue() {}
 }
 
 export default DatePicker;
