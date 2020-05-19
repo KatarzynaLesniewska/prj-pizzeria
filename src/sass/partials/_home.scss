@@ -5,6 +5,16 @@
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+    }
+
+    i {
+      color: $color-light;
+      display: none;
+
+      &:hover + div {
+        color: $color-main;
+      }
+    }
   }
 
   .box1 {
@@ -45,7 +55,7 @@
       display: inline;
 
       a {
-        color: #ff6b6b;
+        color: $color-main;
       }
     }
   }
