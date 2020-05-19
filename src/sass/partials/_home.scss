@@ -1,20 +1,40 @@
 /* Gallery */
 
 .gallery {
+  .box {
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
 
   .box1 {
-    background-image: url(https://images.pexels.com/photos/3693581/pexels-photo-3693581.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-image: url(https://ibb.co/Y0dxfTB);
+  }
+
+  .box2 {
+    background-image: url(https://ibb.co/wWDnMBL);
   }
 
   .box3 {
-    background-image: url(https://images.pexels.com/photos/3693581/pexels-photo-3693581.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-image: url(https://ibb.co/jWgcQP0);
+  }
+
+  .box4 {
+    background-image: url(https://ibb.co/GCR5Tdc);
+  }
+
+  .box5 {
+    background-image: url(https://ibb.co/tXTMFQ1);
+  }
+
+  .box6 {
+    background-image: url(https://ibb.co/9hkQPX0);
   }
 }
 
 /* Footer */
 
 .footer {
-
   div {
     padding: 0;
 
@@ -24,11 +44,8 @@
       list-style-type: none;
       display: inline;
 
-      li {
-
-        a {
-          color: #ff6b6b;
-        }
+      a {
+        color: #ff6b6b;
       }
     }
   }
