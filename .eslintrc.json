@@ -29,5 +29,9 @@
     "no-console": [
       "off"
     ]
+  },
+  "globals": {
+    "rangeSlider": true,
+    "flatpickr": true
   }
 }
