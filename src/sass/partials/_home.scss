@@ -1,15 +1,22 @@
+/* Global */
+.container {
+  margin-top: 50;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  flex: 0 0 33.333%;
+}
+
 /* Gallery */
 
 .gallery {
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
   .box {
-    flex: 0 0 33.333%;
-    position: relative;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -22,6 +29,7 @@
       color: $color-light;
 
       &:hover + div {
+        display: block;
         color: $color-main;
       }
     }
@@ -56,8 +64,6 @@
 
 .footer {
   div {
-    padding: 0;
-
     ul {
       padding: 0;
       margin: 0;
