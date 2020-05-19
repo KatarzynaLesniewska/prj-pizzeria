@@ -1,15 +1,25 @@
 /* Gallery */
 
 .gallery {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   .box {
+    flex: 0 0 33.333%;
+    position: relative;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+
+    div {
+      display: none;
     }
 
     i {
       color: $color-light;
-      display: none;
 
       &:hover + div {
         color: $color-main;
