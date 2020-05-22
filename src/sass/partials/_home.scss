@@ -3,23 +3,63 @@
   margin-top: 50;
 }
 
+div {
+  margin-top: 20;
+  margin-bottom: 30;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.box {
-  flex: 0 0 33.333%;
+/* Order Booking Hours */
+
+.orderBookingHours {
+  .box {
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+
+    a {
+      color: $color-light;
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    p {
+      color: $color-light;
+    }
+  }
+
+  .box1 {
+    background-image: url(https://ibb.co/Fwq0KGS);
+    flex: 50%;
+  }
+
+  .box2 {
+    background-image: url(https://ibb.co/G36bgyq);
+    flex: 50%;
+  }
+
+  .box3 {
+    background-color: $color-main;
+    flex: 100%;
+  }
 }
 
 /* Gallery */
 
 .gallery {
+
   .box {
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+    flex: 0 0 33.333%;
 
     div {
       display: none;
@@ -27,6 +67,7 @@
 
     i {
       color: $color-light;
+      font-size: 25px;
 
       &:hover + div {
         display: block;
@@ -35,28 +76,30 @@
     }
   }
 
-  .box1 {
-    background-image: url(https://ibb.co/Y0dxfTB);
-  }
+  div {
+    .box1 {
+      background-image: url(https://ibb.co/Y0dxfTB);
+    }
 
-  .box2 {
-    background-image: url(https://ibb.co/wWDnMBL);
-  }
+    .box2 {
+      background-image: url(https://ibb.co/wWDnMBL);
+    }
 
-  .box3 {
-    background-image: url(https://ibb.co/jWgcQP0);
-  }
+    .box3 {
+      background-image: url(https://ibb.co/jWgcQP0);
+    }
 
-  .box4 {
-    background-image: url(https://ibb.co/GCR5Tdc);
-  }
+    .box4 {
+      background-image: url(https://ibb.co/GCR5Tdc);
+    }
 
-  .box5 {
-    background-image: url(https://ibb.co/tXTMFQ1);
-  }
+    .box5 {
+      background-image: url(https://ibb.co/tXTMFQ1);
+    }
 
-  .box6 {
-    background-image: url(https://ibb.co/9hkQPX0);
+    .box6 {
+      background-image: url(https://ibb.co/9hkQPX0);
+    }
   }
 }
 
