@@ -14,6 +14,13 @@ div {
   justify-content: space-between;
 }
 
+section #home {
+  img {
+    z-index: -1;
+    object-fit: cover;
+  }
+}
+
 /* Order Booking Hours */
 
 .orderBookingHours {
@@ -22,6 +29,10 @@ div {
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
+    img {
+      z-index: -1;
+      object-fit: cover;
+    }
 
     a {
       color: $color-light;
@@ -48,6 +59,7 @@ div {
   .box3 {
     background-color: $color-main;
     flex: 100%;
+    line-height: 45px;
   }
 }
 
@@ -59,6 +71,10 @@ div {
     background-size: cover;
     background-attachment: fixed;
     flex: 0 0 33.333%;
+    img {
+      z-index: -1;
+      object-fit: cover;
+    }
 
     div {
       display: none;
@@ -67,8 +83,9 @@ div {
     i {
       color: $color-light;
       font-size: 25px;
+      z-index: 1;
 
-      &:hover + div {
+      :hover {
         display: block;
         color: $color-main;
       }
@@ -77,19 +94,19 @@ div {
 
   div {
     .box1 {
-      background-image: url(https://ibb.co/Y0dxfTB);
+      background-image: url(#);
     }
 
     .box2 {
-      background-image: url(https://ibb.co/wWDnMBL);
+      background-image: url(#);
     }
 
     .box3 {
-      background-image: url(https://ibb.co/jWgcQP0);
+      background-image: url(#);
     }
 
     .box4 {
-      background-image: url(https://ibb.co/GCR5Tdc);
+      background-image: url(#);
     }
 
     .box5 {
