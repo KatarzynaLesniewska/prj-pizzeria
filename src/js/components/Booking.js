@@ -13,9 +13,6 @@ class Booking {
     thisBooking.render(wrapper);
     thisBooking.initWidget();
     thisBooking.getData();
-    thisBooking.sendBooking();
-    thisBooking.clickedTable();
-    thisBooking.unmarkTable();
   }
 
   getData() {
@@ -128,7 +125,7 @@ class Booking {
   updateDOM() {
     const thisBooking = this;
 
-    thisBooking.date = thisBooking.DatePicker.value;
+    thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
 
     let allAvailable = false;
@@ -141,6 +138,8 @@ class Booking {
       allAvailable = true;
     }
 
+    console.log(thisBooking.dom);
+
     for (let table of thisBooking.dom.tables) {
       let tableId = table.getAttribute(settings.booking.tableIdAttribute);
       if (!isNaN(tableId)) {
@@ -149,6 +148,8 @@ class Booking {
 
       if (
         !allAvailable
+        &&
+        typeof thisBooking.booked[thisBooking.date][thisBooking.hour] !== 'undefined'
         &&
         thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId) > -1
       ) {
@@ -269,13 +270,7 @@ class Booking {
       table: thisBooking.table,
       startHour: thisBooking.startHour,
       hourBlock: thisBooking.hourBlock,
-      // products: [], jakiś odpowiednik??
     };
-
-    // tu nie wiem ....
-    for (let product of thisBooking.products) {
-      payload.products.push(product.getData());
-    }
 
     const options = {
       method: 'POST',
@@ -291,7 +286,7 @@ class Booking {
         return response.json();
       })
       .then(function (parsedResponse) {
-        // console.log('parsedResponse:', parsedResponse);
+        console.log('parsedResponse:', parsedResponse);
         // thisBooking.parseData(parsedResponse);
 
         if (parsedResponse) {
