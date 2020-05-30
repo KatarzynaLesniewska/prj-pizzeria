@@ -12,6 +12,7 @@ div {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 section #home {
@@ -63,6 +64,73 @@ section #home {
     line-height: 45px;
   }
 }
+
+
+/*
+Carusel
+
+.carousel {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel .carousel-inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+.carousel .carousel-inner .carousel-image {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.carousel .carousel-inner .carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel .carousel-inner .carousel-container {
+  flex: 1;
+}
+
+.carousel .carousel-inner .carousel-container .carousel-item {
+  display: none;
+}
+
+.carousel .carousel-inner .carousel-container .carousel-item.active {
+  display: block;
+}
+
+.carousel .carousel-dots {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  justify-content: center;
+}
+
+.carousel .carousel-dots .carousel-dots-item {
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  border-radius: 100%;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.carousel .carousel-dots .carousel-dots-item:hover {
+  background: #ddd;
+}
+
+.carousel .carousel-dots .carousel-dots-item.active {
+  background: #222;
+}
+
+*/
 
 /* Gallery */
 
